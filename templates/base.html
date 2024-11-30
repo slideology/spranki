@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %} - CountryHopper | Interactive Geography Game</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="{% block meta_description %}CountryHopper - An interactive geography game platform where you can explore the world map and learn about different countries. Enhance your geographical knowledge through fun gameplay.{% endblock %}">
+    <meta name="keywords" content="{% block meta_keywords %}CountryHopper,geography game,world map,country quiz,educational game,online geography learning,interactive map{% endblock %}">
+    <meta name="author" content="CountryHopper">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="{% block og_title %}CountryHopper - Interactive Geography Game{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}{{ self.meta_description() }}{% endblock %}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://countryhopper.online{{ request.path }}">
+    <meta property="og:image" content="{% block og_image %}{{ url_for('static', filename='images/og-image.jpg', _external=True) }}{% endblock %}">
+    <meta property="og:site_name" content="CountryHopper">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ self.og_title() }}">
+    <meta name="twitter:description" content="{{ self.og_description() }}">
+    <meta name="twitter:image" content="{{ self.og_image() }}">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://countryhopper.online{{ request.path }}">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.ico') }}">
+    
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "CountryHopper",
+        "url": "https://countryhopper.online",
+        "description": "An interactive geography game platform where you can explore the world map and learn about different countries.",
+        "potentialAction": {
+            "@type": "PlayAction",
+            "target": "https://countryhopper.online/game"
+        }
+    }
+    </script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-50">
+        <div class="max-w-6xl mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <a href="/" class="text-2xl font-bold hover:text-blue-500 transition-colors">
+                    CountryHopper
+                </a>
+                <div class="flex space-x-6">
+                    <a href="/" class="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">Home</a>
+                    <a href="{{ url_for('game') }}" class="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">Play</a>
+                    <a href="{{ url_for('about') }}" class="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">About</a>
+                    <a href="{{ url_for('contact') }}" class="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">Contact</a>
+                    <button id="theme-toggle" class="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:inline"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-20">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-20 py-8 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                <div class="text-sm">
+                    &copy; 2024 CountryHopper - Interactive Geography Game
+                </div>
+                <div class="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-8">
+                    <a href="/about" class="text-sm hover:text-blue-500 transition-colors">About CountryHopper</a>
+                    <a href="/contact" class="text-sm hover:text-blue-500 transition-colors">Contact Us</a>
+                    <a href="/game" class="text-sm hover:text-blue-500 transition-colors">Start Playing</a>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="https://github.com/yourusername" target="_blank" class="hover:text-blue-500 transition-colors">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://twitter.com/yourusername" target="_blank" class="hover:text-blue-500 transition-colors">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

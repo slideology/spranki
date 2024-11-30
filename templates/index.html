@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <!-- Hero Section -->
+    <section class="text-center mb-8">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Welcome to Country Hopper</h1>
+        <p class="text-xl text-gray-600 dark:text-gray-400 mb-4">
+            Test your geography knowledge and have fun exploring the world!
+        </p>
+    </section>
+
+    <!-- Game Section -->
+    <section class="mb-12">
+        <div class="w-full max-w-[1200px] mx-auto bg-gray-100 dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden" style="aspect-ratio: 16/9;">
+            <iframe 
+                src="https://www.crazygames.com/embed/country-hopper" 
+                style="width: 100%; height: 100%;" 
+                frameborder="0" 
+                allow="gamepad *;">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- Game Instructions -->
+    <section class="max-w-2xl mx-auto text-center mb-12">
+        <h2 class="text-2xl font-bold mb-4">How to Play</h2>
+        <div class="text-gray-600 dark:text-gray-400 space-y-3">
+            <p>🌍 Jump from country to country on the world map</p>
+            <p>🎯 Test your geography knowledge</p>
+            <p>⭐ Score points by making correct guesses</p>
+            <p>🏆 Try to achieve the highest score!</p>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+            <div class="text-3xl mb-4">🎮</div>
+            <h3 class="text-xl font-bold mb-2">Interactive Gameplay</h3>
+            <p class="text-gray-600 dark:text-gray-400">Engaging and fun way to learn geography</p>
+        </div>
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+            <div class="text-3xl mb-4">🧠</div>
+            <h3 class="text-xl font-bold mb-2">Educational</h3>
+            <p class="text-gray-600 dark:text-gray-400">Learn about countries while playing</p>
+        </div>
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+            <div class="text-3xl mb-4">🌟</div>
+            <h3 class="text-xl font-bold mb-2">Challenge Yourself</h3>
+            <p class="text-gray-600 dark:text-gray-400">Compete for high scores</p>
+        </div>
+    </section>
+</div>
+
+<style>
+/* 确保iframe在移动设备上也能正常显示 */
+@media (max-width: 768px) {
+    iframe {
+        height: 500px;
+    }
+}
+</style>
+{% endblock %}
