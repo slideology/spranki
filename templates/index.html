@@ -1,22 +1,65 @@
 {% extends "base.html" %}
 
-{% block title %}Home{% endblock %}
+{% block head %}
+<!-- SEO Meta Tags -->
+<meta name="description" content="Play Sprunki - The innovative music creation game. Mix beats, create unique sounds, and experience an interactive musical journey. Free online music game for all ages.">
+<meta name="keywords" content="sprunki, music game, beat maker, online music creator, interactive music, rhythm game, musical game, sprunki online">
+<meta name="author" content="Sprunki">
+
+<!-- Open Graph Meta Tags -->
+<meta property="og:title" content="Sprunki - Interactive Music Creation Game">
+<meta property="og:description" content="Create amazing music with Sprunki! Mix beats, compose tunes, and share your musical creations in this innovative online game.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://spranki.art">
+<meta property="og:image" content="https://spranki.art/static/images/sprunki-preview.jpg">
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sprunki - Interactive Music Creation Game">
+<meta name="twitter:description" content="Create amazing music with Sprunki! Mix beats, compose tunes, and share your musical creations.">
+<meta name="twitter:image" content="https://spranki.art/static/images/sprunki-preview.jpg">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Sprunki",
+  "description": "An interactive music creation game where players can mix beats and create unique musical compositions",
+  "url": "https://spranki.art",
+  "applicationCategory": "Game",
+  "genre": "Music",
+  "browserRequirements": "Requires HTML5",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+{% endblock %}
+
+{% block title %}Sprunki - Interactive Music Creation Game{% endblock %}
 
 {% block content %}
 <div class="container mx-auto px-4 py-8">
     <!-- Hero Section -->
     <section class="text-center mb-8">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">Welcome to Spranki</h1>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Welcome to Sprunki</h1>
         <p class="text-xl text-gray-600 dark:text-gray-400 mb-4">
-            Experience the unique musical creation journey!
+            Create, Mix, and Share Your Musical Masterpiece!
+        </p>
+        <p class="text-lg text-gray-500 dark:text-gray-400">
+            Join millions of music creators in this innovative beat-making experience
         </p>
     </section>
 
     <!-- Game Section -->
-    <section class="mb-12">
+    <section class="mb-12" aria-label="Sprunki Game Interface">
         <div class="w-full max-w-[1200px] mx-auto bg-gray-100 dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden" style="aspect-ratio: 16/9;">
             <iframe 
                 src="https://sprunki.org"
+                title="Play Sprunki Music Creation Game"
                 style="width: 100%; height: 100%; border: none;" 
                 allowfullscreen="true"
                 webkitallowfullscreen="true" 
@@ -27,39 +70,39 @@
         </div>
     </section>
 
-    <!-- Game Instructions -->
+    <!-- Game Features -->
     <section class="max-w-2xl mx-auto text-center mb-12">
-        <h2 class="text-2xl font-bold mb-4">How to Play</h2>
+        <h2 class="text-2xl font-bold mb-4">Create Music with Sprunki</h2>
         <div class="text-gray-600 dark:text-gray-400 space-y-3">
-            <p>🎵 Create your own unique musical beats</p>
-            <p>🎼 Mix different sounds and rhythms</p>
-            <p>🎧 Enjoy the musical experience</p>
-            <p>🎹 Discover new combinations!</p>
+            <p>🎵 Mix and match unique sound patterns</p>
+            <p>🎼 Create original musical compositions</p>
+            <p>🎧 Experience interactive beat-making</p>
+            <p>🎹 Share your musical creations</p>
         </div>
     </section>
 
-    <!-- Features Section -->
+    <!-- Key Features -->
     <section class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
         <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center">
             <div class="text-3xl mb-4">🎵</div>
-            <div class="text-xl font-bold mb-2">Musical Creation</div>
-            <p class="text-gray-600 dark:text-gray-400">Create your own unique beats</p>
+            <h3 class="text-xl font-bold mb-2">Beat Creation</h3>
+            <p class="text-gray-600 dark:text-gray-400">Create unique beats with Sprunki's intuitive interface</p>
         </div>
         <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center">
             <div class="text-3xl mb-4">🎼</div>
-            <div class="text-xl font-bold mb-2">Interactive</div>
-            <p class="text-gray-600 dark:text-gray-400">Mix and match different sounds</p>
+            <h3 class="text-xl font-bold mb-2">Music Mixing</h3>
+            <p class="text-gray-600 dark:text-gray-400">Mix different sound elements in real-time</p>
         </div>
         <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center">
             <div class="text-3xl mb-4">🎧</div>
-            <div class="text-xl font-bold mb-2">Immersive Experience</div>
-            <p class="text-gray-600 dark:text-gray-400">Enjoy the musical journey</p>
+            <h3 class="text-xl font-bold mb-2">Share Your Music</h3>
+            <p class="text-gray-600 dark:text-gray-400">Share your Sprunki creations with the world</p>
         </div>
     </section>
 </div>
 
 <style>
-/* 确保iframe在移动设备上也能正常显示 */
+/* Responsive iframe */
 @media (max-width: 768px) {
     iframe {
         height: 500px;
