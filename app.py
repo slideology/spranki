@@ -13,11 +13,11 @@ app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'your-secret-key-goes-here')
 # Routes
 @app.route('/')
 def home():
-    return render_template('index.html', title='CountryHopper - Interactive Geography Game')
+    return render_template('index.html', title='Spranki - Interactive Music Experience')
 
 @app.route('/about')
 def about():
-    return render_template('about.html', title='About CountryHopper')
+    return render_template('about.html', title='About Spranki')
 
 @app.route('/game')
 def game():
