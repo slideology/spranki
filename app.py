@@ -4,16 +4,22 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import os
 from dotenv import load_dotenv
+import json
 
 load_dotenv()
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'your-secret-key-goes-here')
 
+def load_faq_data():
+    with open('static/data/faq.json', 'r') as f:
+        return json.load(f)
+
 # Routes
 @app.route('/')
 def home():
-    return render_template('index.html', title='Spranki - Interactive Music Experience')
+    faq_data = load_faq_data()
+    return render_template('index.html', title='Spranki - Interactive Music Experience', faq_data=faq_data)
 
 @app.route('/about')
 def about():
@@ -35,7 +41,8 @@ def contact():
 
 @app.route('/faq')
 def faq():
-    return render_template('faq.html', title='FAQ - Spranki')
+    faq_data = load_faq_data()
+    return render_template('faq.html', title='FAQ - Spranki', faq_data=faq_data)
 
 @app.route('/sitemap.xml')
 def sitemap():
