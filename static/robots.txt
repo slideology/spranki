@@ -1,3 +1,8 @@
 User-agent: *
 Allow: /
-Sitemap: https://countryhopper.online/sitemap.xml
+Allow: /game
+Allow: /coloring
+Allow: /about
+Allow: /contact
+
+Sitemap: https://spranki.com/sitemap.xml

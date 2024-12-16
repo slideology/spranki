@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>{{ meta_tags.title }}</title>
+    <meta name="description" content="{{ meta_tags.description }}">
+    <meta name="keywords" content="{{ meta_tags.keywords }}">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="{{ meta_tags['og:title'] }}">
+    <meta property="og:description" content="{{ meta_tags['og:description'] }}">
+    <meta property="og:type" content="{{ meta_tags['og:type'] }}">
+    {% if meta_tags.get('og:image') %}
+    <meta property="og:image" content="{{ meta_tags['og:image'] }}">
+    {% endif %}
+    
+    <!-- Alternate Language Tags -->
+    <link rel="alternate" hreflang="en" href="https://spranki.com{{ request.path }}">
+    <link rel="alternate" hreflang="lt" href="https://sprankį.com{{ request.path }}">
+    <link rel="alternate" hreflang="x-default" href="https://spranki.com{{ request.path }}">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://spranki.com{{ request.path }}">
+    
+    <!-- Assets -->
+    {% assets "css_all" %}
+    <link rel="stylesheet" href="{{ ASSET_URL }}">
+    {% endassets %}
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('main.home') }}">Home</a></li>
+                <li><a href="{{ url_for('main.game') }}">Game</a></li>
+                <li><a href="{{ url_for('main.coloring') }}">Coloring</a></li>
+                <li><a href="{{ url_for('main.about') }}">About</a></li>
+                <li><a href="{{ url_for('contact.contact_form') }}">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Spranki. All rights reserved.</p>
+    </footer>
+
+    {% assets "js_all" %}
+    <script src="{{ ASSET_URL }}"></script>
+    {% endassets %}
+</body>
+</html>
