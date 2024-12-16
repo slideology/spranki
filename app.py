@@ -33,6 +33,10 @@ def contact():
         return send_message()
     return render_template('contact.html', title='Contact CountryHopper')
 
+@app.route('/faq')
+def faq():
+    return render_template('faq.html', title='FAQ - Spranki')
+
 @app.route('/sitemap.xml')
 def sitemap():
     return send_from_directory('static', 'sitemap.xml')
