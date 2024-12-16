@@ -25,7 +25,7 @@ def game():
 
 @app.route('/introduction')
 def introduction():
-    return render_template('introduction.html', title='游戏介绍 - Spranki')
+    return render_template('introduction.html', title='Game Guide - Spranki')
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():

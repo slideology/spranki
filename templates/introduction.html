@@ -1,23 +1,23 @@
 {% extends "base.html" %}
 
-{% block title %}游戏介绍{% endblock %}
+{% block title %}Game Guide{% endblock %}
 
-{% block meta_description %}探索Spranki游戏的魅力世界！了解游戏玩法、特色功能和独特的音乐互动体验。让音乐和游戏完美结合，创造属于你的精彩时刻。{% endblock %}
+{% block meta_description %}Explore the magical world of Spranki! Learn about gameplay mechanics, unique features, and the interactive music experience. Discover where music and gaming come together to create unforgettable moments.{% endblock %}
 
-{% block meta_keywords %}Spranki游戏,音乐游戏,互动音乐,游戏介绍,音乐互动,游戏玩法{% endblock %}
+{% block meta_keywords %}Spranki game,music game,interactive music,game guide,music interaction,gameplay{% endblock %}
 
 {% block content %}
 <div class="max-w-6xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
-    <!-- 游戏标题部分 -->
+    <!-- Game Title Section -->
     <div class="text-center mb-16">
-        <h1 class="text-4xl font-bold mb-4">探索 Spranki 的魅力世界</h1>
-        <p class="text-xl text-gray-600 dark:text-gray-400">音乐与游戏的完美融合，带来前所未有的互动体验</p>
+        <h1 class="text-4xl font-bold mb-4">Explore the World of Spranki</h1>
+        <p class="text-xl text-gray-600 dark:text-gray-400">Where Music and Gaming Create an Unforgettable Experience</p>
     </div>
 
-    <!-- 游戏特色部分 -->
+    <!-- Game Features Section -->
     <div class="grid md:grid-cols-2 gap-12 mb-16">
         <div class="space-y-6">
-            <h2 class="text-3xl font-bold mb-6">游戏特色</h2>
+            <h2 class="text-3xl font-bold mb-6">Game Features</h2>
             <div class="space-y-4">
                 <div class="flex items-start">
                     <div class="flex-shrink-0">
@@ -26,8 +26,8 @@
                         </svg>
                     </div>
                     <div class="ml-4">
-                        <h3 class="text-xl font-semibold">音乐互动</h3>
-                        <p class="mt-2 text-gray-600 dark:text-gray-400">通过独特的音乐互动机制，让玩家在游戏中感受音乐的魅力</p>
+                        <h3 class="text-xl font-semibold">Musical Interaction</h3>
+                        <p class="mt-2 text-gray-600 dark:text-gray-400">Experience the magic of music through unique interactive mechanics</p>
                     </div>
                 </div>
                 <div class="flex items-start">
@@ -37,8 +37,8 @@
                         </svg>
                     </div>
                     <div class="ml-4">
-                        <h3 class="text-xl font-semibold">创意玩法</h3>
-                        <p class="mt-2 text-gray-600 dark:text-gray-400">结合音乐元素的创新玩法，让每一次游戏体验都充满惊喜</p>
+                        <h3 class="text-xl font-semibold">Creative Gameplay</h3>
+                        <p class="mt-2 text-gray-600 dark:text-gray-400">Innovative gameplay mechanics that combine musical elements for a unique experience</p>
                     </div>
                 </div>
                 <div class="flex items-start">
@@ -48,48 +48,48 @@
                         </svg>
                     </div>
                     <div class="ml-4">
-                        <h3 class="text-xl font-semibold">实时反馈</h3>
-                        <p class="mt-2 text-gray-600 dark:text-gray-400">即时的音乐反馈系统，让玩家的每个操作都充满韵律感</p>
+                        <h3 class="text-xl font-semibold">Real-time Feedback</h3>
+                        <p class="mt-2 text-gray-600 dark:text-gray-400">Instant musical feedback system that makes every action rhythmically satisfying</p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="relative">
-            <img src="{{ url_for('static', filename='images/game-features.jpg') }}" alt="Spranki游戏特色展示" class="rounded-lg shadow-xl">
+            <img src="{{ url_for('static', filename='images/game-features.jpg') }}" alt="Spranki Game Features Showcase" class="rounded-lg shadow-xl">
         </div>
     </div>
 
-    <!-- 游戏玩法部分 -->
+    <!-- Gameplay Guide Section -->
     <div class="bg-gray-100 dark:bg-gray-800 rounded-xl p-8 mb-16">
-        <h2 class="text-3xl font-bold mb-8 text-center">游戏玩法指南</h2>
+        <h2 class="text-3xl font-bold mb-8 text-center">Gameplay Guide</h2>
         <div class="grid md:grid-cols-3 gap-8">
             <div class="text-center">
                 <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md">
-                    <h3 class="text-xl font-semibold mb-4">基础操作</h3>
-                    <p class="text-gray-600 dark:text-gray-400">了解游戏的基本操作和控制方式，快速上手开始你的音乐之旅</p>
+                    <h3 class="text-xl font-semibold mb-4">Basic Controls</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Learn the fundamental controls and get started on your musical journey</p>
                 </div>
             </div>
             <div class="text-center">
                 <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md">
-                    <h3 class="text-xl font-semibold mb-4">音乐创作</h3>
-                    <p class="text-gray-600 dark:text-gray-400">探索丰富的音乐元素，创造属于你的独特旋律</p>
+                    <h3 class="text-xl font-semibold mb-4">Music Creation</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Explore rich musical elements and create your unique melodies</p>
                 </div>
             </div>
             <div class="text-center">
                 <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md">
-                    <h3 class="text-xl font-semibold mb-4">挑战模式</h3>
-                    <p class="text-gray-600 dark:text-gray-400">通过不同难度的关卡，提升你的音乐游戏技巧</p>
+                    <h3 class="text-xl font-semibold mb-4">Challenge Mode</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Progress through different difficulty levels to enhance your skills</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- 开始游戏按钮 -->
+    <!-- Start Game Button -->
     <div class="text-center">
         <a href="{{ url_for('game') }}" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-full transition-colors duration-200">
-            立即开始游戏
+            Start Playing Now
         </a>
-        <p class="mt-4 text-gray-600 dark:text-gray-400">加入我们，开启你的音乐游戏之旅！</p>
+        <p class="mt-4 text-gray-600 dark:text-gray-400">Join us and begin your musical gaming adventure!</p>
     </div>
 </div>
 {% endblock %}
