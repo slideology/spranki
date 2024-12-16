@@ -23,6 +23,10 @@ def about():
 def game():
     return render_template('game.html', title='Play CountryHopper')
 
+@app.route('/introduction')
+def introduction():
+    return render_template('introduction.html', title='游戏介绍 - Spranki')
+
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     if request.method == 'POST':
