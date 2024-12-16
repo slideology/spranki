@@ -14,5 +14,10 @@
             "src": "/(.*)",
             "dest": "app.py"
         }
-    ]
+    ],
+    "git": {
+        "deploymentEnabled": {
+            "main": true
+        }
+    }
 }
