@@ -96,14 +96,77 @@
             <p class="text-gray-600 dark:text-gray-400">Share your Sprunki creations with the world</p>
         </div>
     </section>
+
+    <!-- FAQ Section -->
+    <section class="py-12 bg-gray-50 dark:bg-gray-800 mt-12 rounded-xl">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+            
+            <div class="space-y-6">
+                <!-- Question 1 -->
+                <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md transition-all hover:shadow-lg">
+                    <h3 class="text-xl font-semibold mb-3">What is Spranki?</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Spranki is an innovative music creation game that combines rhythm gaming with creative music production. It's designed to make music creation fun and accessible while helping you develop real musical skills.
+                    </p>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md transition-all hover:shadow-lg">
+                    <h3 class="text-xl font-semibold mb-3">Do I need musical experience?</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Not at all! Spranki is designed to be enjoyable for everyone, regardless of their musical background. Our intuitive interface and tutorial system will help you get started quickly.
+                    </p>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md transition-all hover:shadow-lg">
+                    <h3 class="text-xl font-semibold mb-3">What can I create with Spranki?</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        With Spranki, you can create beats, melodies, full songs, and even collaborate with other musicians. Our platform provides various musical tools, effects, and AI-powered features to enhance your creativity.
+                    </p>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md transition-all hover:shadow-lg">
+                    <h3 class="text-xl font-semibold mb-3">Is Spranki free to play?</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Yes! Spranki is completely free to play. We offer optional premium features for enhanced creativity, but the core game experience is always free.
+                    </p>
+                </div>
+
+                <!-- Question 5 -->
+                <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md transition-all hover:shadow-lg">
+                    <h3 class="text-xl font-semibold mb-3">Can I play on my mobile device?</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Yes! Spranki works on any modern web browser, including mobile devices. Just visit our website and start creating music - no installation required!
+                    </p>
+                </div>
+            </div>
+
+            <!-- More Questions Link -->
+            <div class="text-center mt-8">
+                <a href="{{ url_for('faq') }}" class="inline-flex items-center px-6 py-3 text-lg font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors">
+                    View More Questions
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
 </div>
 
 <style>
-/* Responsive iframe */
-@media (max-width: 768px) {
-    iframe {
-        height: 500px;
+    .container {
+        max-width: 1400px;
     }
-}
+    
+    @media (min-width: 1024px) {
+        .container {
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+    }
 </style>
 {% endblock %}
