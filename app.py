@@ -5,21 +5,40 @@ from email.mime.multipart import MIMEMultipart
 import os
 from dotenv import load_dotenv
 import json
+import logging
 
 load_dotenv()
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'your-secret-key-goes-here')
 
+# Set up logging
+app.logger.setLevel(logging.ERROR)
+
 def load_faq_data():
-    with open('static/data/faq.json', 'r') as f:
-        return json.load(f)
+    faq_path = os.path.join(app.static_folder, 'data', 'faq.json')
+    try:
+        with open(faq_path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except FileNotFoundError:
+        app.logger.error(f"FAQ data file not found at {faq_path}")
+        return {"faq_sections": []}
+    except json.JSONDecodeError as e:
+        app.logger.error(f"Error decoding FAQ JSON: {str(e)}")
+        return {"faq_sections": []}
+    except Exception as e:
+        app.logger.error(f"Unexpected error loading FAQ data: {str(e)}")
+        return {"faq_sections": []}
 
 # Routes
 @app.route('/')
 def home():
-    faq_data = load_faq_data()
-    return render_template('index.html', title='Spranki - Interactive Music Experience', faq_data=faq_data)
+    try:
+        faq_data = load_faq_data()
+        return render_template('index.html', title='Spranki - Interactive Music Experience', faq_data=faq_data)
+    except Exception as e:
+        app.logger.error(f"Error in home route: {str(e)}")
+        return render_template('index.html', title='Spranki - Interactive Music Experience', faq_data={"faq_sections": []})
 
 @app.route('/about')
 def about():
@@ -41,8 +60,12 @@ def contact():
 
 @app.route('/faq')
 def faq():
-    faq_data = load_faq_data()
-    return render_template('faq.html', title='FAQ - Spranki', faq_data=faq_data)
+    try:
+        faq_data = load_faq_data()
+        return render_template('faq.html', title='FAQ - Spranki', faq_data=faq_data)
+    except Exception as e:
+        app.logger.error(f"Error in faq route: {str(e)}")
+        return render_template('faq.html', title='FAQ - Spranki', faq_data={"faq_sections": []})
 
 @app.route('/sitemap.xml')
 def sitemap():
@@ -91,6 +114,7 @@ def send_message():
         
         flash('Thank you for your message! We will get back to you soon.', 'success')
     except Exception as e:
+        app.logger.error(f"Error sending message: {str(e)}")
         flash('Sorry, there was a problem sending your message. Please try again later.', 'error')
     
     return redirect(url_for('contact'))
