@@ -48,6 +48,10 @@ def about():
 def game():
     return render_template('game.html', title='Play CountryHopper')
 
+@app.route('/ads.txt')
+def ads_txt():
+    return send_from_directory('static', 'ads.txt')
+
 @app.route('/introduction')
 def introduction():
     return render_template('introduction.html', title='Game Guide - Spranki')
