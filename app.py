@@ -390,7 +390,7 @@ def sprunki_parodybox():
 
 @app.route('/robots.txt')
 def robots():
-    return send_from_directory('static', 'robots.txt')
+    return send_from_directory('static', 'robots.txt', mimetype='text/plain')
 
 def send_message():
     name = request.form.get('name')
