@@ -22,23 +22,33 @@ def load_faq_data():
             return json.load(f)
     except FileNotFoundError:
         app.logger.error(f"FAQ data file not found at {faq_path}")
-        return {"faq_sections": []}
+        return {}
     except json.JSONDecodeError as e:
         app.logger.error(f"Error decoding FAQ JSON: {str(e)}")
-        return {"faq_sections": []}
+        return {}
     except Exception as e:
         app.logger.error(f"Unexpected error loading FAQ data: {str(e)}")
-        return {"faq_sections": []}
+        return {}
+
+def get_faqs_for_page(page_id):
+    try:
+        faq_data = load_faq_data()
+        if page_id in faq_data:
+            return {page_id: faq_data[page_id]}
+        return {}
+    except Exception as e:
+        app.logger.error(f"Error getting FAQs for page {page_id}: {str(e)}")
+        return {}
 
 # Routes
 @app.route('/')
 def home():
     try:
-        faq_data = load_faq_data()
+        faq_data = get_faqs_for_page('index')
         return render_template('index.html', title='Spranki - Interactive Music Experience', faq_data=faq_data)
     except Exception as e:
         app.logger.error(f"Error in home route: {str(e)}")
-        return render_template('index.html', title='Spranki - Interactive Music Experience', faq_data={"faq_sections": []})
+        return render_template('index.html', title='Spranki - Interactive Music Experience', faq_data={})
 
 @app.route('/about')
 def about():
@@ -74,6 +84,309 @@ def faq():
 @app.route('/sitemap.xml')
 def sitemap():
     return send_from_directory('static', 'sitemap.xml')
+
+@app.route('/sprunki-misfismix')
+def sprunki_misfismix():
+    faq_data = get_faqs_for_page('sprunki-misfismix')
+    return render_template('sprunki-misfismix.html',
+                         page_title='Sprunki Misfismix',
+                         faq_data=faq_data)
+
+@app.route('/sprunki-pyramixed')
+def sprunki_pyramixed():
+    faq_data = get_faqs_for_page('sprunki-pyramixed')
+    return render_template('sprunki-pyramixed.html',
+                         page_title='Sprunki Pyramixed',
+                         faq_data=faq_data)
+
+@app.route('/sprunki-sprunksters')
+def sprunki_sprunksters():
+    faq_data = get_faqs_for_page('sprunki-sprunksters')
+    return render_template('sprunki-sprunksters.html',
+                         page_title='Sprunki Sprunksters',
+                         faq_data=faq_data)
+
+@app.route('/sprunki-sprured')
+def sprunki_sprured():
+    faq_data = get_faqs_for_page('sprunki-sprured')
+    return render_template('sprunki-sprured.html',
+                         page_title='Sprunki Sprured',
+                         faq_data=faq_data)
+
+@app.route('/sprunki-lily')
+def sprunki_lily():
+    faq_data = get_faqs_for_page('sprunki-lily')
+    return render_template('sprunki-lily.html',
+                         page_title='Sprunki Lily',
+                         faq_data=faq_data)
+
+@app.route('/sprunki-1996')
+def sprunki_1996():
+    """Sprunki 1996游戏页面路由"""
+    faq_data = get_faqs_for_page('sprunki-1996')
+    return render_template('sprunki-1996.html',
+                          page_title='Sprunki 1996',
+                          dynamic_faqs=faq_data['faqs'],
+                          conclusion=faq_data['conclusion'])
+
+@app.route('/sprunki-shatter')
+def sprunki_shatter():
+    faq_data = get_faqs_for_page('sprunki-shatter')
+    return render_template('sprunki-shatter.html',
+                         page_title='Sprunki Shatter',
+                         faq_data=faq_data)
+
+@app.route('/sprunki-fiddlebops')
+def sprunki_fiddlebops():
+    faq_data = get_faqs_for_page('sprunki-fiddlebops')
+    return render_template('sprunki-fiddlebops.html',
+                         page_title='Sprunki FiddleBops',
+                         faq_data=faq_data)
+
+@app.route('/incredibox-rainbow-animal')
+def incredibox_rainbow_animal():
+    faq_data = get_faqs_for_page('incredibox-rainbow-animal')
+    return render_template('incredibox-rainbow-animal.html',
+                         page_title='Incredibox Rainbow Animal',
+                         faq_data=faq_data)
+
+@app.route('/sprunki-wenda-edition')
+def sprunki_wenda_edition():
+    faq_data = get_faqs_for_page('sprunki-wenda-edition')
+    return render_template('sprunki-wenda-edition.html',
+                         page_title='Sprunki Wenda Edition',
+                         faq_data=faq_data)
+
+@app.route('/sprunki-pyramixed-ultimate-deluxe')
+def sprunki_pyramixed_ultimate_deluxe():
+    faq_data = get_faqs_for_page('sprunki-pyramixed-ultimate-deluxe')
+    return render_template('sprunki-pyramixed-ultimate-deluxe.html',
+                         page_title='Sprunki Pyramixed Ultimate Deluxe',
+                         faq_data=faq_data)
+
+@app.route('/sprunki-chaotic-good')
+def sprunki_chaotic_good():
+    faq_data = get_faqs_for_page('sprunki-chaotic-good')
+    return render_template('sprunki-chaotic-good.html',
+                         page_title='Sprunki Chaotic Good',
+                         faq_data=faq_data)
+
+@app.route('/incredibox-irrelevant-reunion')
+def incredibox_irrelevant_reunion():
+    faq_data = get_faqs_for_page('incredibox-irrelevant-reunion')
+    return render_template('incredibox-irrelevant-reunion.html',
+                         page_title='Incredibox Irrelevant Reunion',
+                         faq_data=faq_data)
+
+@app.route('/sprunki-pyramixed-melophobia')
+def sprunki_pyramixed_melophobia():
+    faq_data = get_faqs_for_page('sprunki-pyramixed-melophobia')
+    return render_template('sprunki-pyramixed-melophobia.html',
+                         page_title='Sprunki Pyramixed Melophobia',
+                         faq_data=faq_data)
+
+@app.route('/sprunka')
+def sprunka():
+    faq_data = get_faqs_for_page('sprunka')
+    return render_template('sprunka.html',
+                         page_title='Sprunka',
+                         faq_data=faq_data)
+
+@app.route('/sprunki-phase-6-definitive-all-alive')
+def sprunki_phase_6_definitive_all_alive():
+    faq_data = get_faqs_for_page('sprunki-phase-6-definitive-all-alive')
+    return render_template('sprunki-phase-6-definitive-all-alive.html',
+                         page_title='Sprunki Phase 6 Definitive All Alive',
+                         faq_data=faq_data)
+
+@app.route('/sprunki-phase-6-definitive-remaster')
+def sprunki_phase_6_definitive_remaster():
+    faq_data = get_faqs_for_page('sprunki-phase-6-definitive-remaster')
+    return render_template('sprunki-phase-6-definitive-remaster.html',
+                         page_title='Sprunki Phase 6 Definitive Remaster',
+                         faq_data=faq_data)
+
+@app.route('/sprunki-phase-6-definitive')
+def sprunki_phase_6_definitive():
+    faq_data = get_faqs_for_page('sprunki-phase-6-definitive')
+    return render_template('sprunki-phase-6-definitive.html',
+                         page_title='Sprunki Phase 6 Definitive',
+                         faq_data=faq_data)
+
+@app.route('/sprunki-sploinkers')
+def sprunki_sploinkers():
+    faq_data = get_faqs_for_page('sprunki-sploinkers')
+    return render_template('sprunki-sploinkers.html',
+                         page_title='Sprunki Sploinkers',
+                         faq_data=faq_data)
+
+@app.route('/sprunki-pyramixed-regretful')
+def sprunki_pyramixed_regretful():
+    faq_data = get_faqs_for_page('sprunki-pyramixed-regretful')
+    return render_template('sprunki-pyramixed-regretful.html',
+                         page_title='Sprunki Pyramixed Regretful',
+                         faq_data=faq_data)
+
+@app.route('/sprunki-megalovania')
+def sprunki_megalovania():
+    faq_data = get_faqs_for_page('sprunki-megalovania')
+    return render_template('sprunki-megalovania.html',
+                         page_title='Sprunki Megalovania',
+                         faq_data=faq_data)
+
+@app.route('/sprunki-sprunkr')
+def sprunki_sprunkr():
+    faq_data = get_faqs_for_page('sprunki-sprunkr')
+    return render_template('sprunki-sprunkr.html',
+                         page_title='Sprunkr',
+                         faq_data=faq_data)
+
+@app.route('/sprunki-brud-edition-finale')
+def sprunki_brud_edition_finale():
+    faq_data = get_faqs_for_page('sprunki-brud-edition-finale')
+    return render_template('sprunki-brud-edition-finale.html',
+                         page_title='Sprunki Brud Edition Finale',
+                         faq_data=faq_data)
+
+@app.route('/sprunki-spruted')
+def sprunki_spruted():
+    faq_data = get_faqs_for_page('sprunki-spruted')
+    return render_template('sprunki-spruted.html',
+                         page_title='Sprunki Spruted',
+                         faq_data=faq_data)
+
+@app.route('/sprunki-spfundi')
+def sprunki_spfundi():
+    faq_data = get_faqs_for_page('sprunki-spfundi')
+    return render_template('sprunki-spfundi.html',
+                         page_title='Sprunki Spfundi',
+                         faq_data=faq_data)
+
+@app.route('/sprunki-angry')
+def sprunki_angry():
+    faq_data = get_faqs_for_page('sprunki-angry')
+    return render_template('sprunki-angry.html',
+                         page_title='Sprunki Angry',
+                         faq_data=faq_data)
+
+@app.route('/sprunki-phase-777-3-7')
+def sprunki_phase_777_3_7():
+    faq_data = get_faqs_for_page('sprunki-phase-777-3-7')
+    return render_template('sprunki-phase-777-3-7.html',
+                         page_title='Sprunki Phase 777 3.7',
+                         faq_data=faq_data)
+
+@app.route('/sprunklings')
+def sprunklings():
+    faq_data = get_faqs_for_page('sprunki-sprunklings')
+    return render_template('sprunklings.html',
+                         page_title='Sprunklings',
+                         faq_data=faq_data)
+
+@app.route('/sprunki-swap-retextured')
+def sprunki_swap_retextured():
+    faq_data = get_faqs_for_page('sprunki-swap-retextured')
+    return render_template('sprunki-swap-retextured.html',
+                         page_title='Sprunki Swap Retextured',
+                         faq_data=faq_data)
+
+@app.route('/sprunki-upin-ipin')
+def sprunki_upin_ipin():
+    faq_data = get_faqs_for_page('sprunki-upin-ipin')
+    return render_template('sprunki-upin-ipin.html',
+                         page_title='Sprunki Upin Ipin',
+                         faq_data=faq_data)
+
+@app.route('/sprunki-ultimate-deluxe')
+def sprunki_ultimate_deluxe():
+    faq_data = get_faqs_for_page('sprunki-ultimate-deluxe')
+    return render_template('sprunki-ultimate-deluxe.html',
+                         page_title='Sprunki Ultimate Deluxe',
+                         faq_data=faq_data)
+
+@app.route('/sprunki-phase-19-update')
+def sprunki_phase_19_update():
+    faq_data = get_faqs_for_page('sprunki-phase-19-update')
+    return render_template('sprunki-phase-19-update.html',
+                         page_title='Sprunki Phase 19 Update',
+                         faq_data=faq_data)
+
+@app.route('/sprunki-phase-1-7')
+def sprunki_phase_1_7():
+    faq_data = get_faqs_for_page('sprunki-phase-1-7')
+    return render_template('sprunki-phase-1-7.html',
+                         page_title='Sprunki Phase 1.7',
+                         faq_data=faq_data)
+
+@app.route('/sprunki-dx')
+def sprunki_dx():
+    faq_data = get_faqs_for_page('sprunki-dx')
+    return render_template('sprunki-dx.html',
+                         page_title='Sprunki DX',
+                         faq_data=faq_data)
+
+@app.route('/sprunki-banana')
+def sprunki_banana():
+    faq_data = get_faqs_for_page('sprunki-banana')
+    return render_template('sprunki-banana.html',
+                         page_title='Sprunki Banana',
+                         faq_data=faq_data)
+
+@app.route('/sprunki-garnold')
+def sprunki_garnold():
+    faq_data = get_faqs_for_page('sprunki-garnold')
+    return render_template('sprunki-garnold.html',
+                         page_title='Sprunki Garnold',
+                         faq_data=faq_data)
+
+@app.route('/sprunki-ketchup')
+def sprunki_ketchup():
+    faq_data = get_faqs_for_page('sprunki-ketchup')
+    return render_template('sprunki-ketchup.html',
+                         page_title='Sprunki Ketchup',
+                         faq_data=faq_data)
+
+@app.route('/sprunki-agents')
+def sprunki_agents():
+    faq_data = get_faqs_for_page('sprunki-agents')
+    return render_template('sprunki-agents.html',
+                         page_title='Sprunki Agents',
+                         faq_data=faq_data)
+
+@app.route('/sprunki-banana-porridge')
+def sprunki_banana_porridge():
+    faq_data = get_faqs_for_page('sprunki-banana-porridge')
+    return render_template('sprunki-banana-porridge.html',
+                         page_title='Sprunki Banana Porridge',
+                         faq_data=faq_data)
+
+@app.route('/sprunki-retake-but-human')
+def sprunki_retake_but_human():
+    faq_data = get_faqs_for_page('sprunki-retake-but-human')
+    return render_template('sprunki-retake-but-human.html',
+                         page_title='Sprunki Retake But Human',
+                         faq_data=faq_data)
+
+@app.route('/sprunki-retake-new-human')
+def sprunki_retake_new_human():
+    faq_data = get_faqs_for_page('sprunki-retake-new-human')
+    return render_template('sprunki-retake-new-human.html',
+                         page_title='Sprunki Retake New Human',
+                         faq_data=faq_data)
+
+@app.route('/sprunki-grown-up')
+def sprunki_grown_up():
+    faq_data = get_faqs_for_page('sprunki-grown-up')
+    return render_template('sprunki-grown-up.html',
+                         page_title='Sprunki Grown Up',
+                         faq_data=faq_data)
+
+@app.route('/sprunki-parodybox')
+def sprunki_parodybox():
+    faq_data = get_faqs_for_page('sprunki-parodybox')
+    return render_template('sprunki-parodybox.html',
+                         page_title='Sprunki Parodybox',
+                         faq_data=faq_data)
 
 @app.route('/robots.txt')
 def robots():
@@ -124,4 +437,4 @@ def send_message():
     return redirect(url_for('contact'))
 
 if __name__ == '__main__':
-    app.run(debug=True, port=3000)
+    app.run(debug=True, port=5006)

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+<head>
+{% block title %}Sprunki Megalovania - Sprunki Horror Music Game{% endblock %}
+{% block meta_description %}
+<meta name="description" content="Sprunki Megalovania: Combine the iconic theme with horror! Create haunting melodies and experience spine-chilling sound effects in this unique music game.">
+{% endblock %}
+{% block og_title %}Sprunki Megalovania - Sprunki Horror Music Game{% endblock %}
+{% block og_description %}Sprunki Megalovania: Combine the iconic theme with horror! Create haunting melodies and experience spine-chilling sound effects in this unique music game.{% endblock %}
+</head>
+{% block content %}
+{% block favicon %}
+<link rel="icon" type="image/png" href="{{ url_for('static', filename='images/games/sprunki-megalovania-favicon.png') }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/games/sprunki-megalovania-apple-touch-icon.png') }}">
+{% endblock %}
+<div class="relative overflow-hidden">
+    {% with 
+        gradient_colors="from-blue-900 via-indigo-800 to-purple-900",
+        blob_gradient_1="from-blue-900 to-indigo-800",
+        blob_gradient_2="from-indigo-800 to-purple-900",
+        title_gradient="from-blue-600 via-indigo-500 to-purple-600",
+        game_url="https://wowtbc.net/sprunkin/sprunki-megalovania/index.html",
+        title="Sprunki Megalovania",
+        description="Sprunki Megalovania: Combine the iconic theme with horror! Create haunting melodies and experience spine-chilling sound effects in this unique music game."
+    %}
+        {% include 'components/hero.html' %}
+    {% endwith %}
+
+    <!-- Trending Games Section -->
+    {% with current_page='sprunki-megalovania' %}
+    {% include 'components/trending_games.html' %}
+    {% endwith %}
+    <!-- faq Section -->
+    {% include 'components/faq_section.html' %}
+</div>
+{% endblock %}

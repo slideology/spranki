@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Sprunki Parodybox - New Oc Mod on spranki.art{% endblock %}
+
+{% block meta_description %}
+<meta name="description" content="Sprunki Parodybox: A spine-chilling music creation experience similar to Incredibox, but with a distinctly eerie horror twist. Try this unique game!">
+{% endblock %}
+
+{% block og_title %}Sprunki Parodybox - New Oc Mod on spranki.art{% endblock %}
+{% block og_description %}Sprunki Parodybox: A spine-chilling music creation experience, similar to Incredibox but with a distinctively eerie horror twist. Try this unique game!{% endblock %}
+{% block og_image %}https://spranki.art/static/images/games/parodybox-preview.png{% endblock %}
+
+{% block head %}
+<meta name="description" content="Sprunki Parodybox: A spine-chilling music creation experience similar to Incredibox, but with a distinctly eerie horror twist. Try this unique game!">
+{% endblock %}
+
+{% block favicon %}
+<link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon/sprunki-parodybox-favicon.png') }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/favicon/sprunki-parodybox-apple-touch-icon.png') }}">
+{% endblock %}
+
+{% block content %}
+<div class="relative overflow-hidden">
+    {% with 
+        gradient_colors="from-fuchsia-800 via-purple-700 to-violet-600",
+        blob_gradient_1="from-fuchsia-800 to-purple-700",
+        blob_gradient_2="from-purple-700 to-violet-600",
+        title_gradient="from-fuchsia-600 via-purple-500 to-violet-400",
+        game_url="https://wowtbc.net/sprunkin/parodybox-but-sprunkicool/index.html",
+        title="Sprunki Parodybox",
+        description="Sprunki Parodybox: A spine-chilling music creation experience similar to Incredibox, but with a distinctly eerie horror twist. Try this unique game!"
+    %}
+        {% include 'components/hero.html' %}
+    {% endwith %}
+
+    <!-- Trending Games Section -->
+    {% with current_page='sprunki-parodybox' %}
+    {% include 'components/trending_games.html' %}
+    {% endwith %}
+    <!-- faq Section -->
+    {% include 'components/faq_section.html' %}
+</div>
+{% endblock %}

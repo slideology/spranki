@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Sprunki Lily - New Character Oc Mod{% endblock %}
+
+{% block meta_description %}
+<meta name="description" content="Sprunki Lily, New Character Mod: Add cool new characters like Lilac (Lily) to Sprunki with this exciting new mod. Discover their unique styles!">
+{% endblock %}
+
+{% block og_title %}Sprunki Lily - New Character Mod{% endblock %}
+{% block og_description %}Sprunki Lily,New Character Mod,Sprunki new mod adds new characters like Lilac (Lily), and they are so cool{% endblock %}
+{% block og_image %}https://spranki.art/static/images/games/lily-preview.png{% endblock %}
+
+{% block head %}
+<meta name="description" content="Sprunki Lily, New Character Mod: Add cool new characters like Lilac (Lily) to Sprunki with this exciting new mod. Discover their unique styles!">
+{% endblock %}
+
+{% block favicon %}
+<link rel="icon" type="image/png" href="{{ url_for('static', filename='images/games/sprunki-lily-favicon.png') }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/games/sprunki-lily-apple-touch-icon.png') }}">
+{% endblock %}
+
+{% block content %}
+<div class="relative overflow-hidden">
+    {% with 
+        gradient_colors="from-pink-400 via-purple-500 to-indigo-600",
+        blob_gradient_1="from-pink-500 to-purple-500",
+        blob_gradient_2="from-purple-500 to-indigo-500",
+        title_gradient="from-pink-500 via-purple-500 to-indigo-500",
+        game_url="https://html-classic.itch.zone/html/13266850/index.html",
+        title="Sprunki Lily",
+        description="Sprunki Lily, New Character Mod: Add cool new characters like Lilac (Lily) to Sprunki with this exciting new mod. Discover their unique styles!"
+    %}
+        {% include 'components/hero.html' %}
+    {% endwith %}
+
+    {% with current_page='sprunki-lily' %}
+    {% include 'components/trending_games.html' %}
+    {% endwith %}
+
+    
+    <!-- faq Section -->
+    {% include 'components/faq_section.html' %}
+</div>
+{% endblock %}

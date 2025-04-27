@@ -3,23 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3179065211650247"
-     crossorigin="anonymous"></script>
-     <!-- Plausible Analytics -->
-    <script defer data-domain="spranki.art" src="https://plausible.io/js/script.js"></script>
+    <meta name="google-adsense-account" content="ca-pub-3179065211650247">
+
     <title>{% block title %}{% endblock %} - Spranki | Interactive Music Experience</title>
-
-    <!-- Clarity -->
-    <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "qtk3rc7n6l");
-</script>
-
     
+    <!-- Clarity Analytics -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "qqgzrqm2ec");
+    </script>
+
     <!-- SEO Meta Tags -->
     <meta name="description" content="{% block meta_description %}Spranki - An interactive music creation platform where you can create beats, mix sounds, and make your own music. Experience the joy of music making through an intuitive interface.{% endblock %}">
     <meta name="keywords" content="{% block meta_keywords %}Spranki,music creation,beat maker,sound mixer,music platform,online music making,interactive music{% endblock %}">
@@ -41,7 +37,7 @@
     <meta name="twitter:image" content="{{ self.og_image() }}">
     
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://spranki.vercel.app{{ request.path }}">
+    <link rel="canonical" href="https://spranki.art{{ request.path }}">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/favicon.png') }}">
@@ -53,80 +49,125 @@
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "Spranki",
-        "url": "https://spranki.vercel.app",
+        "url": "https://spranki.art",
         "description": "An interactive music creation platform where you can create beats, mix sounds, and make your own music.",
         "potentialAction": {
             "@type": "PlayAction",
-            "target": "https://spranki.vercel.app/music"
+            "target": "https://spranki.art/music"
         }
     }
     </script>
     
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.13.3/dist/cdn.min.js"></script>
+    
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+    <!-- Core Styles -->
+    <style>
+        :root { --primary-color: #3b82f6; }
+        .dark { --primary-color: #60a5fa; }
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .animate-blob { animation: blob 7s infinite; }
+        @keyframes blob {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .animation-delay-2000 { animation-delay: 2s; }
+        .animate-on-scroll { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+        .animate-on-scroll.animate { opacity: 1; transform: translateY(0); }
+        nav { transition: transform 0.3s ease-in-out; }
+        nav.scroll-down { transform: translateY(-100%); }
+        nav.scroll-up { transform: translateY(0); }
+        
+        /* 自定义宽高比容器 */
+        .aspect-4-3 {
+            position: relative;
+            width: 100%;
+            padding-bottom: 75%; /* 4:3 = 75% */
+            height: 0;
+            overflow: hidden;
+        }
+        .aspect-4-3 > .content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+    {% block styles %}{% endblock %}
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JW7VP8KX3V"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JW7VP8KX3V');
+    </script>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3179065211650247" crossorigin="anonymous"></script>
+    
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Sprunkr",
+        "description": "Unleash haunting melodies with our special glitch music system",
+        "url": "https://sprunkr.online",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://sprunkr.online/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+    
+    <!-- Game Loading Script -->
+    <script>
+        function loadGame(buttonElement, gameUrl) {
+            // 找到游戏容器和内容容器
+            const container = buttonElement.closest('.game-container');
+            const contentDiv = buttonElement.closest('.content');
+            
+            // 创建iframe
+            const iframe = document.createElement('iframe');
+            iframe.src = gameUrl;
+            iframe.className = 'w-full h-full border-0';
+            iframe.scrolling = 'no';
+            iframe.allowFullscreen = true;
+            
+            // 清空内容容器并添加iframe
+            contentDiv.innerHTML = '';
+            contentDiv.appendChild(iframe);
+        }
+    </script>
 </head>
-<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
-    <!-- Navigation -->
-    <nav class="fixed w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-50">
-        <div class="max-w-6xl mx-auto px-4 py-3">
-            <div class="flex justify-between items-center">
-                <a href="/" class="text-2xl font-bold hover:text-blue-500 transition-colors">
-                    Spranki
-                </a>
-                <div class="flex space-x-6">
-                    <a href="{{ url_for('home') }}" class="text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400">Home</a>
-                    <a href="{{ url_for('introduction') }}" class="text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400">Game Guide</a>
-                    <a href="{{ url_for('faq') }}" class="text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400">FAQ</a>
-                    <a href="{{ url_for('game') }}" class="text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400">Play</a>
-                    <a href="{{ url_for('about') }}" class="text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400">About</a>
-                    <a href="{{ url_for('contact') }}" class="text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
-                    <button id="theme-toggle" class="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">
-                        <i class="fas fa-moon dark:hidden"></i>
-                        <i class="fas fa-sun hidden dark:inline"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Main Content -->
-    <main class="pt-20">
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 min-h-screen flex flex-col" x-data="{ theme: 'light', mobileMenu: false }">
+    <!-- Navigation -->
+    {% include 'components/nav.html' %}
+
+    <main class="pt-16 sm:pt-20 flex-grow">
         {% block content %}{% endblock %}
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm mt-auto py-8">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="flex flex-col space-y-8">
-                <!-- Main Footer Content -->
-                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-                    <div class="text-sm">
-                        &copy; 2024 Spranki - Interactive Music Experience
-                    </div>
-                    <div class="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-8">
-                        <a href="/about" class="text-sm hover:text-blue-500 transition-colors">About Spranki</a>
-                        <a href="/contact" class="text-sm hover:text-blue-500 transition-colors">Contact Us</a>
-                        <a href="/game" class="text-sm hover:text-blue-500 transition-colors">Start Playing</a>
-                    </div>
-                </div>
-                
-                <!-- Friendly Links -->
-                <div class="border-t border-gray-200 dark:border-gray-700 pt-6">
-                    <h3 class="text-sm font-semibold mb-4 text-center">友情链接</h3>
-                    <div class="flex flex-wrap justify-center gap-4">
-                        <a href="https://countryhopper.online/" class="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">CountryHopper</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    {% include 'components/footer.html' %}
 
     <!-- JavaScript -->
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.min.js') }}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest"></script>
+    <script>lucide.createIcons();</script>
     {% block scripts %}{% endblock %}
 </body>
 </html>
