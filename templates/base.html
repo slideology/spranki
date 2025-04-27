@@ -122,12 +122,12 @@
     {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": "Sprunkr",
-        "description": "Unleash haunting melodies with our special glitch music system",
-        "url": "https://sprunkr.online",
+        "name": "Spranki",
+        "description": "An interactive music creation platform where you can create beats, mix sounds, and make your own music.",
+        "url": "https://spranki.art",
         "potentialAction": {
             "@type": "SearchAction",
-            "target": "https://sprunkr.online/search?q={search_term_string}",
+            "target": "https://spranki.art/search?q={search_term_string}",
             "query-input": "required name=search_term_string"
         }
     }
@@ -159,7 +159,9 @@
     {% include 'components/nav.html' %}
 
     <main class="pt-16 sm:pt-20 flex-grow">
-        {% block content %}{% endblock %}
+        <!-- Affiliate Banner -->
+        {% include 'components/affiliate_banner.html' %}
+                {% block content %}{% endblock %}
     </main>
 
     {% include 'components/footer.html' %}
