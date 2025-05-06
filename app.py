@@ -150,6 +150,13 @@ def incredibox_rainbow_animal():
                          page_title='Incredibox Rainbow Animal',
                          faq_data=faq_data)
 
+@app.route('/yet-another-boring-old-sprunki-mod')
+def yet_another_boring_old_sprunki_mod():
+    faq_data = get_faqs_for_page('yet-another-boring-old-sprunki-mod')
+    return render_template('yet-another-boring-old-sprunki-mod.html',
+                         page_title='Yet Another Boring Old Sprunki Mod',
+                         faq_data=faq_data)
+
 @app.route('/sprunki-wenda-edition')
 def sprunki_wenda_edition():
     faq_data = get_faqs_for_page('sprunki-wenda-edition')

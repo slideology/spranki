@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Play Yet Another Boring Old Sprunki Mod On Spranki Art{% endblock %}
+
+{% block meta_description %}
+<meta name="description" content="Yet Another Boring Old Sprunki Mod: Reinvents rhythm with experimental mechanics. Its unique phase-based system creates fresh musical combinations for players.">
+{% endblock %}
+
+{% block og_title %}Play Yet Another Boring Old Sprunki Mod On Spranki Art{% endblock %}
+{% block og_description %}Yet Another Boring Old Sprunki Mod: Reinvents rhythm with experimental mechanics. Its unique phase-based system creates fresh musical combinations for players.{% endblock %}
+{% block og_image %}https://spranki.art/static/images/games/yet-another-boring-old-sprunki-mod-preview.png{% endblock %}
+
+{% block favicon %}
+<link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon/yet-another-boring-old-sprunki-mod.png') }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/favicon/yet-another-boring-old-sprunki-mod-apple-touch-icon.png') }}">
+{% endblock %}
+
+{% block content %}
+<div class="relative overflow-hidden">
+    {% with 
+        gradient_colors="from-pink-400 via-purple-500 to-indigo-600",
+        blob_gradient_1="from-pink-500 to-purple-500",
+        blob_gradient_2="from-purple-500 to-indigo-500",
+        title_gradient="from-pink-500 via-purple-500 to-indigo-500",
+        game_url="https://s.sprunkiscrunkly.com/games/yet-another-boring-old-sprunki-phase-3/yet-another-boring-old-sprunki-phase-3.html",
+        title="Yet Another Boring Old Sprunki Mod",
+        description="Yet Another Boring Old Sprunki Mod: Reinvents rhythm with experimental mechanics. Its unique phase-based system creates fresh musical combinations for players."
+    %}
+        {% include 'components/hero.html' %}
+    {% endwith %}
+
+    <!-- Trending Games Section -->
+    {% with current_page='yet-another-boring-old-sprunki-mod' %}
+    {% include 'components/trending_games.html' %}
+    {% endwith %}
+
+    <!-- FAQ Section -->
+    {% include 'components/faq_section.html' %}
+
+    
+</div>
+{% endblock %}

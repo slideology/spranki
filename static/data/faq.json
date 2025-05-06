@@ -28,19 +28,6 @@
       ],
       "conclusion": "Sprunki Banana offers a delightful and tropical musical experience that stands out in the Sprunki universe."
     },
-    "sprunki-garnold": {
-      "faqs": [
-        {
-          "question": "Who is Garnold in Sprunki?",
-          "answer": "Garnold (Gold) is one of the main characters in Sprunki, known for his distinctive golden appearance and unique sound effects."
-        },
-        {
-          "question": "What are Garnold's special features?",
-          "answer": "Garnold brings unique golden-themed sound effects and visual elements to the game, creating a premium music experience."
-        }
-      ],
-      "conclusion": "Garnold adds a touch of golden luxury to the Sprunki universe with his unique sound effects and visual elements."
-    },
     "sprunki-ketchup": {
       "faqs": [
         {
@@ -897,59 +884,38 @@
       ],
       "conclusion": "Sprunki Phase 1.7 continues the fan-made storyline established in Phase 1.5, expanding the original universe with new narrative developments."
   },
-  "sprunki-brud-edition-finale": {
-      "faqs": [
-          
-  {
-      "question": "What is Sprunki Brud Edition Finale?",
-      "answer": "Sprunki Brud Edition Finale is a turn-based strategy game featuring a moss-eating, intellectually-challenged commander named Sprunki Brud. It combines simple color-based tactics, moss consumption mechanics, and humor to create a unique tactical experience."
-      },
-      {
-      "question": "How do you play Sprunki Brud Edition Finale?",
-      "answer": "Players make color-coordinated unit selections, execute one-word commands (e.g., 'Go!', 'Hit!'), and collect shiny objects to upgrade their army. The goal is to win battles through accidental brilliance and moss-eating animations."
-      },
-      {
-      "question": "What defines Sprunki Brud Edition Finale's gameplay?",
-      "answer": "Core mechanics include:\n- **Color-Coded Tactics**: Decisions based on terrain colors.\n- **Moss Consumption**: Realistic animations between turns.\n- **Bucket Headgear**: Tactical choice between bucket (smarter) or spike (intimidating).\n- **Sympathy Diplomacy**: Negotiations using phrases like 'Feel bad?'."
-      },
-      {
-      "question": "What makes Sprunki Brud Edition Finale unique?",
-      "answer": "It humorously reverses traditional strategy by requiring minimal cognitive effort. The protagonist’s limited intelligence (e.g., shiny object upgrades, binary decision-making) creates a paradoxically challenging experience."
-      },
-      {
-      "question": "Do I need strategy experience to play Sprunki Brud Edition Finale?",
-      "answer": "No! The game is designed for all skill levels, from advanced tacticians to players with simple comprehension, using basic emotions and color recognition."
-      },
-      {
-      "question": "How do upgrades work in Sprunki Brud Edition Finale?",
-      "answer": "Upgrades are based on collecting 'shiny things' that catch Sprunki’s attention. These upgrades enhance army capabilities, though their effects are humorously simplified (e.g., 'shiny = better')."
-      },
-      {
-      "question": "What is the Bucket Headgear System?",
-      "answer": "A tactical choice where Sprunki can wear a bucket (slightly smarter decisions) or show his spike (more intimidating, but less strategic). The system adds lighthearted depth to gameplay."
-      },
-      {
-      "question": "How does Sympathy-Based Diplomacy function?",
-      "answer": "Negotiations rely on simple phrases like 'Feel bad?' to influence outcomes. This mechanic parodies traditional diplomacy with Sprunki’s limited emotional range."
-      },
-      {
-      "question": "What inspired Sprunki Brud Edition Finale's development?",
-      "answer": "The game began as an experiment to see if a low-IQ character could succeed in warfare. Its defining feature is balancing simplicity for Sprunki with hidden complexity for players."
-      },
-      {
-      "question": "Is Sprunki Brud Edition Finale free to play?",
-      "answer": "Yes! The game is free, mirroring Sprunki’s simplistic nature and accessible to all players."
-      },
-      {
-      "question": "What community features exist for Sprunki Brud Edition Finale?",
-      "answer": "Players share stories of accidental victories, bond over moss-eating animations, and communicate using simple phrases and sympathetic noises in the supportive community."
-      },
-      {
-      "question": "What makes Sprunki Brud Edition Finale engaging?",
-      "answer": "The humor from Sprunki’s incompetence, paradoxical strategic depth, and charming animations create a lighthearted yet satisfying experience for players of all backgrounds."
-      } 
-      ],
-      "conclusion": "Sprunki Brud Edition Finale: A comedic turn-based strategy where a dimwitted hero masters moss-fueled warfare through accidental tactical genius. Lead armies with unexpected brilliance!"
+  "yet-another-boring-old-sprunki-mod": {
+    "faqs": [
+        {
+            "question": "Tell me about the tactical depth in Yet Another Boring Old Sprunki Mod.",
+            "answer": "Yet Another Boring Old Sprunki Mod offers unparalleled tactical depth in the Sprunki universe. It's a turn-based strategy game with a Quantum Tactical System that blends real-time elements and simultaneous moves, forcing deep strategic thinking on a post-apocalyptic chessboard."
+          },
+          {
+            "question": "How smart are the enemies in this Sprunki game?",
+            "answer": "Your opponents use Neural Network AI that adapts as you play! They learn your strategies, meaning the smarter you are, the smarter they become, providing a continuous and evolving challenge."
+          },
+          {
+            "question": "Does the environment matter in battles?",
+            "answer": "Absolutely! The game features Environmental Warfare Dynamics where battlefields are living ecosystems. Weather changes, terrain degrades, and unexpected environmental events can dramatically shift the flow of combat."
+          },
+          {
+            "question": "What kind of progression does the story or world have?",
+            "answer": "It uses a Dynamic Narrative Engine where the story branches based on your tactical decisions. Unit losses can have permanent consequences, and the overall world state evolves based on your progress through the campaign."
+          },
+          {
+            "question": "How do you get better at playing Yet Another Boring Old Sprunki Mod?",
+            "answer": "Mastering the game involves learning Advanced Positioning (like using elevation and flanking), careful Resource Management for each turn, and using Adaptive Loadout Strategies to customize your units mid-mission."
+          },
+          {
+            "question": "Can I play Yet Another Boring Old Sprunki Mod on my phone?",
+            "answer": "Yes, it supports mobile play with a mobile-optimized tactical interface, in addition to being available on PC (Windows, Mac, Linux) and as a browser-based progressive web app."
+          },
+          {
+            "question": "Why is Yet Another Boring Old Sprunki Mod called 'boring old'?",
+            "answer": "The 'Boring Old' part of the name is likely ironic! The game is described as a 'quantum leap' and the 'evolution of tactical thinking,' suggesting it's anything but boring, packed with groundbreaking features and dynamic challenges."
+          }
+    ],
+    "conclusion": "Yet Another Boring Old Sprunki Mod: Reinvents rhythm with experimental mechanics. Its unique phase-based system creates fresh musical combinations for players."
   },
   "sprunki-phase-19-update": {
       "faqs": [
