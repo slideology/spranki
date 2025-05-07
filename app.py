@@ -278,7 +278,7 @@ def sprunki_spfundi():
 @app.route('/internet-roadtrip')
 def internet_roadtrip():
     faq_data = get_faqs_for_page('internet-roadtrip')
-    return render_template('internet-roadtrip',
+    return render_template('internet-roadtrip.html',
                          page_title='Internet Roadtrip',
                          faq_data=faq_data)
 
