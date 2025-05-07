@@ -917,6 +917,35 @@
     ],
     "conclusion": "Yet Another Boring Old Sprunki Mod: Reinvents rhythm with experimental mechanics. Its unique phase-based system creates fresh musical combinations for players."
   },
+  "internet-roadtrip": {
+    "faqs": [
+      {
+        "question": "Ready for a chill online journey? Tell me about Internet Roadtrip.",
+        "answer": "Internet Roadtrip is a unique multiplayer experience where you take a virtual road trip using Google Street View with other people online. There's no specific place you need to go – the fun is just exploring wherever the road takes you!"
+      },
+      {
+        "question": "How exactly do you navigate the world in Internet Roadtrip?",
+        "answer": "The game puts you somewhere in the world. Then, every 10 seconds, everyone playing gets to vote on whether to turn left, right, go forward, or turn around. Your group's votes decide your path through the real world streets captured by Street View."
+      },
+      {
+        "question": "What cool features does Internet Roadtrip include?",
+        "answer": "It has features like real-world exploration powered by Google Street View, multiplayer voting every few seconds, the excitement of never knowing what's next since there's no map, a cool Retro FM Radio, and a live map showing your exact location."
+      },
+      {
+        "question": "What makes Internet Roadtrip different from other games?",
+        "answer": "It's more than just a game; it's a journey! It blends elements of strategy, puzzle-solving, and real-time decision-making. The game's innovative mechanics and dynamic world mean every single road trip is a totally new adventure."
+      },
+      {
+        "question": "Do I need gaming experience to play Internet Roadtrip?",
+        "answer": "No, Internet Roadtrip is accessible to everyone, whether you play games often or not. Its unique concept and simple voting mechanics make it easy for newcomers to jump in and enjoy the ride."
+      },
+      {
+        "question": "Is there a final goal or destination in Internet Roadtrip?",
+        "answer": "Nope, there's no destination in Internet Roadtrip. The entire point is the joy of the open (virtual) road – exploring together, discovering new places, and seeing where your group's votes take you."
+      }
+    ],
+    "conclusion": "Explore the world via Google Street View in Internet Roadtrip! Join this quirky, fun multiplayer game and experience the ultimate virtual roadtrip."
+  },
   "sprunki-idle-clicker": {
     "faqs": [
       {

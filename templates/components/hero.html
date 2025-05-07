@@ -19,15 +19,15 @@
                                 <!-- 游戏封面图 -->
                                 <div class="w-1/2 sm:w-2/5 md:w-1/3 lg:w-1/4 max-w-[100px] mb-6">
                                     {% set game_name = title|lower|replace(' ', '-') %}
-                                    <img src="{{ url_for('static', filename='images/games/' + title|lower|replace(' ', '-') + '-preview.png') }}" 
-                                         alt="{{ title }}" 
+                                    <img src="{{ url_for('static', filename='images/games/' + title|lower|replace(' ', '-') + '-preview.png') }}"
+                                         alt="{{ title }}"
                                          class="w-full h-auto rounded-[8px] shadow-md"
-                                         onerror="this.onerror=null; this.src='{{ url_for('static', filename='images/favicon/' + game_name + '-apple-touch-icon.png') }}';">
+                                         onerror="this.onerror=null; this.src='{{ url_for('static', filename='images/favicon/' + game_name + '-apple-touch-icon.png') }}'">
                                 </div>
                                 
                                 <!-- 开始游戏按钮 -->
-                                <button 
-                                   onclick="loadGame(this, '{{ game_url }}')"
+                                <button
+                                   onclick="{% if open_in_new_tab %}window.open('{{ game_url }}', '_blank'){% else %}loadGame(this, '{{ game_url }}'){% endif %}"
                                    class="group relative px-8 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-full transform transition-all duration-300 hover:scale-105 flex items-center space-x-2 shadow-md cursor-pointer">
                                     <span class="relative z-10 font-medium text-lg">Play Now</span>
                                     <svg class="w-5 h-5 relative z-10 transform transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
