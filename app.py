@@ -213,6 +213,13 @@ def sprunki_phase_6_definitive_remaster():
                          page_title='Sprunki Phase 6 Definitive Remaster',
                          faq_data=faq_data)
 
+@app.route('/sprunki-idle-clicker')
+def sprunki_idle_clicker():
+    faq_data = get_faqs_for_page('sprunki-idle-clicker')
+    return render_template('sprunki-idle-clicker.html',
+                         page_title='Sprunki Idle Clicker',
+                         faq_data=faq_data)
+
 @app.route('/sprunki-phase-6-definitive')
 def sprunki_phase_6_definitive():
     faq_data = get_faqs_for_page('sprunki-phase-6-definitive')
