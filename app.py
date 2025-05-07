@@ -275,12 +275,18 @@ def sprunki_spfundi():
     return render_template('sprunki-spfundi.html',
                          page_title='Sprunki Spfundi',
                          faq_data=faq_data)
+
 @app.route('/internet-roadtrip')
 def internet_roadtrip():
-    faq_data = get_faqs_for_page('internet-roadtrip')
-    return render_template('internet-roadtrip.html',
-                         page_title='Internet Roadtrip',
-                         faq_data=faq_data)
+    try:
+        app.logger.info("Accessing internet-roadtrip route")
+        faq_data = get_faqs_for_page('internet-roadtrip')
+        return render_template('internet-roadtrip.html',
+                            page_title='Internet Roadtrip',
+                            faq_data=faq_data)
+    except Exception as e:
+        app.logger.error(f"Error in internet-roadtrip route: {str(e)}")
+        return render_template('error.html', error_message="An error occurred while loading the page"), 500
 
 @app.route('/sprunki-angry')
 def sprunki_angry():
