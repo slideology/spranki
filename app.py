@@ -302,6 +302,13 @@ def sprunki_phase_777_3_7():
                          page_title='Sprunki Phase 777 3.7',
                          faq_data=faq_data)
 
+@app.route('/ssspicy')
+def ssspicy():
+    faq_data = get_faqs_for_page('ssspicy')
+    return render_template('ssspicy.html',
+                         page_title='Ssspicy',
+                         faq_data=faq_data)
+
 @app.route('/sprunklings')
 def sprunklings():
     faq_data = get_faqs_for_page('sprunki-sprunklings')

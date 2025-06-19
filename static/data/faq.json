@@ -946,6 +946,35 @@
     ],
     "conclusion": "Explore the world via Google Street View in Internet Roadtrip! Join this quirky, fun multiplayer game and experience the ultimate virtual roadtrip."
   },
+  "ssspicy": {
+    "faqs": [
+      {
+        "question": "What kind of puzzle challenges does Ssspicy offer?",
+        "answer": "Ssspicy offers quirky spatial challenges where a feisty snake eats fiery chilies. The game is packed with hilarious twists like spicy dashes, sliding foods, and unexpected chain reactions, making each level a clever and brain-burning puzzle."
+      },
+      {
+        "question": "How do chilies behave when you interact with them?",
+        "answer": "Chilies in Ssspicy react uniquely to your snake's movement: when pushed, they slide across the stage unless they hit an obstacle. This mechanic is central to the puzzles, as you must carefully guide your snake to ensure each pepper stops in an edible spot without slipping away."
+      },
+      {
+        "question": "Tell me about the snake's reaction after eating a chili.",
+        "answer": "After consuming a chili, your snake automatically breathes fire and dashes backward! This 'spicy recoil' is a critical part of the puzzle. It can create new pathways or unintended consequences, adding a layer of strategic thinking and humor to every bite."
+      },
+      {
+        "question": "What makes Ssspicy funny and charming?",
+        "answer": "Ssspicy is incredibly funny due to its absurd physics and reactions: your snake breathes fire and launches like a rocket, and food can slide into ridiculous spots. This constant slapstick, combined with the game's clever design, gives it immense charm."
+      },
+      {
+        "question": "What are the core controls for moving the snake?",
+        "answer": "The core controls for moving the snake are simple: you can use either the Arrow Keys or WASD. There are also useful keys like Z to undo your last move and R to restart the current level."
+      },
+      {
+        "question": "Is Ssspicy a game that requires careful planning?",
+        "answer": "Yes, it absolutely requires careful planning! You need to think ahead to guide your snake, ensure chilies stop in the right place, and use the spicy recoil strategically. Levels get progressively more complex with clever layouts, demanding bold but precise planning."
+      }
+    ],
+    "conclusion": "Ssspicy is a dodge game that lights up your reflexes. Experience neon-hot action, dodge everything, and ride the spice wave to glory!"
+  },
   "sprunki-idle-clicker": {
     "faqs": [
       {
