@@ -309,6 +309,13 @@ def god_simulator():
                          page_title='God Simulator',
                          faq_data=faq_data)
 
+@app.route('/dadish')
+def dadish():
+    faq_data = get_faqs_for_page('dadish')
+    return render_template('dadish.html',
+                         page_title='Dadish',
+                         faq_data=faq_data)
+
 @app.route('/ssspicy')
 def ssspicy():
     faq_data = get_faqs_for_page('ssspicy')

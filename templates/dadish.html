@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Play Dadish On Spranki Art Game{% endblock %}
+
+{% block meta_description %}
+<meta name="description" content="Rescue lost kids in Dadish, a retro-style platformer! Join a radish dad's quest to jump, dodge, and reunite his quirky veggie family.">
+{% endblock %}
+
+{% block og_title %}Play Dadish On Spranki Art game{% endblock %}
+{% block og_description %}Dadish is a retro-style platformer where you play as a dad trying to rescue his kids.{% endblock %}
+{% block og_image %}https://spranki.art/static/images/games/dadish-preview.png{% endblock %}
+
+{% block favicon %}
+<link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon/dadish.png') }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/favicon/dadish-apple-touch-icon.png') }}">
+{% endblock %}
+
+{% block content %}
+<div class="relative overflow-hidden">
+    {% with 
+        gradient_colors="from-pink-400 via-purple-500 to-indigo-600",
+        blob_gradient_1="from-pink-500 to-purple-500",
+        blob_gradient_2="from-purple-500 to-indigo-500",
+        title_gradient="from-pink-500 via-purple-500 to-indigo-500",
+        game_url="https://playgroundfree.github.io/dadish/",
+        title="Dadish",
+        description="Dadish is a retro-style platformer where you play as a dad trying to rescue his kids."
+    %}
+        {% include 'components/hero.html' %}
+    {% endwith %}
+
+    <!-- Trending Games Section -->
+    {% with current_page='dadish' %}
+    {% include 'components/trending_games.html' %}
+    {% endwith %}
+
+    <!-- FAQ Section -->
+    {% include 'components/faq_section.html' %}
+
+    
+</div>
+{% endblock %}
