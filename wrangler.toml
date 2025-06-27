@@ -5,6 +5,7 @@ pages_build_output_dir = "."
 [env.production]
 name = "spranki-art"
 compatibility_date = "2024-12-27"
+compatibility_flags = ["nodejs_compat"]
 
 # Pages 项目配置
 [[env.production.routes]]
@@ -18,8 +19,4 @@ zone_name = "spranki.art"
 # 环境变量配置
 [env.production.vars]
 ENVIRONMENT = "production"
-DEBUG = "false"
-
-# 兼容性标志
-[env.production.compatibility_flags]
-nodejs_compat = true 
+DEBUG = "false" 
