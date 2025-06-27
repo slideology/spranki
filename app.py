@@ -309,6 +309,7 @@ def sprunki_angry():
                          page_slug='sprunki-angry',
                          faq_data=faq_data)
 
+
 @app.route('/sprunki-phase-777-3-7')
 def sprunki_phase_777_3_7():
     faq_data = get_faqs_for_page('sprunki-phase-777-3-7')
@@ -329,6 +330,13 @@ def dadish():
     faq_data = get_faqs_for_page('dadish')
     return render_template('dadish.html',
                          page_title='Dadish',
+                         faq_data=faq_data)
+
+@app.route('/flying-kong')
+def flying_kong():
+    faq_data = get_faqs_for_page('flying-kong')
+    return render_template('flying-kong.html',
+                         page_title='Flying Kong',
                          faq_data=faq_data)
 
 @app.route('/ssspicy')
