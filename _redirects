@@ -1,3 +1,11 @@
+# Static site redirects for Cloudflare Pages
+
+# Redirect old paths if any
+# /old-path /new-path 301
+
+# Catch-all for SPA (not needed for static site)
+# /* /index.html 200
+
 # 重定向 www 到非 www
 https://www.spranki.art/* https://spranki.art/:splat 301!
 

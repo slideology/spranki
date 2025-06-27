@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-adsense-account" content="ca-pub-3179065211650247">
+
+    <title>Play Sprunki Idle Clicker On Spranki Art Game - Spranki | Interactive Music Experience</title>
+    
+    <!-- Clarity Analytics -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "qqgzrqm2ec");
+    </script>
+
+    <!-- SEO Meta Tags -->
+    
+<meta name="description" content="Tap and collect in Sprunki Idle Clicker! Unlock cute Sprunkies and grow your collection in this addictive clicker adventure filled with fun.">
+
+    <meta name="author" content="Spranki">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Play Sprunki Idle Clicker On Spranki Art Game">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://spranki.art/sprunki-idle-clicker">
+    <meta property="og:image" content="https://spranki.art/static/images/games/sprunki-idle-clicker-preview.png">
+    <meta property="og:site_name" content="Spranki">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Play Sprunki Idle Clicker On Spranki Art Game">
+    <meta name="twitter:image" content="https://spranki.art/static/images/games/sprunki-idle-clicker-preview.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://spranki.art/sprunki-idle-clicker">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/static/img/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/img/favicon.png">
+    
+    </script>
+    
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.13.3/dist/cdn.min.js"></script>
+    
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+    <!-- Core Styles -->
+    <style>
+        :root { --primary-color: #3b82f6; }
+        .dark { --primary-color: #60a5fa; }
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .animate-blob { animation: blob 7s infinite; }
+        @keyframes blob {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .animation-delay-2000 { animation-delay: 2s; }
+        .animate-on-scroll { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+        .animate-on-scroll.animate { opacity: 1; transform: translateY(0); }
+        nav { transition: transform 0.3s ease-in-out; }
+        nav.scroll-down { transform: translateY(-100%); }
+        nav.scroll-up { transform: translateY(0); }
+        
+        /* 自定义宽高比容器 */
+        .aspect-4-3 {
+            position: relative;
+            width: 100%;
+            padding-bottom: 75%; /* 4:3 = 75% */
+            height: 0;
+            overflow: hidden;
+        }
+        .aspect-4-3 > .content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+    
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JW7VP8KX3V"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JW7VP8KX3V');
+    </script>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3179065211650247" crossorigin="anonymous"></script>
+    
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Spranki",
+        "description": "An interactive music creation platform where you can create beats, mix sounds, and make your own music.",
+        "url": "https://spranki.art",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://spranki.art/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+    
+    <!-- Game Loading Script -->
+    <script>
+        function loadGame(buttonElement, gameUrl) {
+            // 找到游戏容器和内容容器
+            const container = buttonElement.closest('.game-container');
+            const contentDiv = buttonElement.closest('.content');
+            
+            // 创建iframe
+            const iframe = document.createElement('iframe');
+            iframe.src = gameUrl;
+            iframe.className = 'w-full h-full border-0';
+            iframe.scrolling = 'no';
+            iframe.allowFullscreen = true;
+            
+            // 清空内容容器并添加iframe
+            contentDiv.innerHTML = '';
+            contentDiv.appendChild(iframe);
+        }
+    </script>
+</head>
+
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 min-h-screen flex flex-col" x-data="{ theme: 'light', mobileMenu: false }">
+    <!-- Navigation -->
+    <!-- Navigation -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16 sm:h-20">
+            <!-- Logo -->
+            <div class="flex-shrink-0">
+                <a href="/" class="inline-block">
+                    <span class="text-xl sm:text-2xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 bg-clip-text text-transparent">Spranki</span>
+                </a>
+            </div>
+
+            <!-- Mobile menu button -->
+            <button type="button" 
+                    class="lg:hidden p-2 rounded-md text-gray-500 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-gray-300 dark:hover:bg-gray-800"
+                    @click="mobileMenu = !mobileMenu"
+                    aria-expanded="false">
+                <span class="sr-only">Open menu</span>
+                <svg class="h-6 w-6" x-show="!mobileMenu" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+                <svg class="h-6 w-6" x-show="mobileMenu" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+
+            <!-- Desktop menu -->
+            <div class="hidden lg:flex lg:items-center lg:space-x-8">
+                <a href="/" class="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white px-3 py-2 text-sm font-medium">
+                    Home
+                </a>
+                
+                <!-- Games Dropdown -->
+                <div class="relative" x-data="{ open: false }">
+                    <button @click="open = !open" @click.away="open = false" class="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white px-3 py-2 text-sm font-medium flex items-center">
+                        Games
+                        <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div x-show="open" 
+                         class="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5"
+                         x-transition:enter="transition ease-out duration-100"
+                         x-transition:enter-start="transform opacity-0 scale-95"
+                         x-transition:enter-end="transform opacity-100 scale-100"
+                         x-transition:leave="transition ease-in duration-75"
+                         x-transition:leave-start="transform opacity-100 scale-100"
+                         x-transition:leave-end="transform opacity-0 scale-95">
+                        <div class="py-1">
+                            <a href="/sprunki-retake-but-human" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">Sprunki Retake But Human</a>
+                            <a href="/sprunki-lily" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">Sprunki Lily</a>
+                            <a href="/sprunki-agents" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">Sprunki Agents</a>
+                            <a href="/sprunki-sprunksters" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">Sprunki Sprunksters</a>
+                            <a href="/sprunki-megalovania" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">Sprunki Megalovania</a>
+                            <a href="/sprunki-spruted" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">Sprunki Spruted</a>
+                            <a href="/sprunki-banana" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">Sprunki Banana</a>
+                            <a href="/sprunki-garnold" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">Sprunki Garnold</a>
+                            <a href="/sprunki-ketchup" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">Sprunki Ketchup</a>
+                            <a href="/sprunki-parodybox" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">Sprunki Parodybox</a>
+                            <a href="/sprunki-pyramixed" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">Sprunki Pyramixed</a>
+                            <a href="/sprunki-fiddlebops" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">Sprunki Fiddlebops</a>
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div x-show="mobileMenu" 
+             class="lg:hidden"
+             x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0 -translate-y-1"
+             x-transition:enter-end="opacity-100 translate-y-0"
+             x-transition:leave="transition ease-in duration-150"
+             x-transition:leave-start="opacity-100 translate-y-0"
+             x-transition:leave-end="opacity-0 -translate-y-1">
+            <div class="pt-2 pb-4 space-y-1">
+                <a href="/" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800 rounded-md">
+                    Home
+                </a>
+                
+                <!-- Mobile Games Menu -->
+                <div x-data="{ open: false }" class="relative">
+                    <button @click="open = !open" class="w-full text-left px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800 rounded-md flex justify-between items-center">
+                        Games
+                        <svg class="h-4 w-4" :class="{ 'transform rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div x-show="open" class="pl-4">
+                        <a href="/sprunki-retake-but-human" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800 rounded-md">Sprunki Retake But Human</a>
+                        <a href="/sprunki-lily" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800 rounded-md">Sprunki Lily</a>
+                        <a href="/sprunki-sprunksters" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800 rounded-md">Sprunki Sprunksters</a>
+                        <a href="/sprunki-agents" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800 rounded-md">Sprunki Agents</a>
+                        <a href="/sprunki-fiddlebops" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800 rounded-md">Sprunki FiddleBops</a>
+                        <a href="/sprunki-megalovania" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800 rounded-md">Sprunki Megalovania</a>
+                        <a href="/sprunki-spruted" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800 rounded-md">Sprunki Spruted</a>
+                        <a href="/sprunki-banana" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800 rounded-md">Sprunki Banana</a>
+                        <a href="/sprunki-garnold" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800 rounded-md">Sprunki Garnold</a>
+                        <a href="/sprunki-ketchup" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800 rounded-md">Sprunki Ketchup</a>
+                        <a href="/sprunki-parodybox" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800 rounded-md">Sprunki Parodybox</a>
+                        <a href="/sprunki-pyramixed" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800 rounded-md">Sprunki Pyramixed</a>
+                    </div>
+                </div>
+
+                <a href="/faq" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800 rounded-md">
+                    FAQ
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Language Selector Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const languageButton = document.getElementById('language-menu-button');
+    const languageMenu = document.getElementById('language-menu');
+    const mobileMenuButton = document.querySelector('[aria-controls="mobile-menu"]');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    // Language menu toggle
+    languageButton.addEventListener('click', function() {
+        languageMenu.classList.toggle('hidden');
+    });
+
+    // Close language menu when clicking outside
+    document.addEventListener('click', function(event) {
+        if (!languageButton.contains(event.target) && !languageMenu.contains(event.target)) {
+            languageMenu.classList.add('hidden');
+        }
+    });
+
+    // Mobile menu toggle
+    mobileMenuButton.addEventListener('click', function() {
+        mobileMenu.classList.toggle('hidden');
+        const expanded = mobileMenu.classList.contains('hidden') ? 'false' : 'true';
+        mobileMenuButton.setAttribute('aria-expanded', expanded);
+    });
+});
+</script>
+
+    <main class="pt-16 sm:pt-20 flex-grow">
+        <!-- Affiliate Banner -->
+        <!-- Affiliate Program Banner Component -->
+<div id="affiliate-banner" class="w-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white py-3 px-4 shadow-md relative">
+    <div class="container mx-auto flex flex-col sm:flex-row items-center justify-between">
+        <!-- Banner Content -->
+        <div class="flex items-center space-x-2 mb-2 sm:mb-0">
+            <i data-lucide="video" class="w-5 h-5"></i>
+            <p class="font-medium">Free to Generate AI Video Online Now</p>
+        </div>
+        
+        <!-- Call to Action Button -->
+        <a href="https://pollo.ai?ref=ytayndd" 
+           class="bg-white text-purple-600 hover:bg-gray-100 transition-colors duration-300 px-4 py-1.5 rounded-full font-medium text-sm shadow-sm"
+           target="_blank" 
+           rel="noopener noreferrer">
+            Try it Free
+        </a>
+        
+        <!-- Close Button -->
+        <button id="close-affiliate-banner" 
+                class="absolute top-1 right-2 text-white hover:text-gray-200 transition-colors duration-300"
+                aria-label="Close banner">
+            <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+    </div>
+</div>
+
+<!-- Banner JavaScript -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Check if banner was previously closed
+        const bannerClosed = localStorage.getItem('affiliate_banner_closed');
+        const banner = document.getElementById('affiliate-banner');
+        
+        // Show banner if it wasn't closed before
+        if (bannerClosed !== 'true') {
+            banner.classList.remove('hidden');
+        } else {
+            banner.classList.add('hidden');
+        }
+        
+        // Add close button functionality
+        document.getElementById('close-affiliate-banner').addEventListener('click', function() {
+            banner.classList.add('hidden');
+            // Store the user's preference
+            localStorage.setItem('affiliate_banner_closed', 'true');
+            
+            // Optional: Reset the preference after 7 days
+            setTimeout(() => {
+                localStorage.removeItem('affiliate_banner_closed');
+            }, 7 * 24 * 60 * 60 * 1000);
+        });
+    });
+</script>
+                
+<div class="relative overflow-hidden">
+    
+        <!-- Hero Section -->
+<div class="relative pt-16 pb-32 flex content-center items-center justify-center" style="min-height: 50vh;">
+    <!-- 背景渐变 -->
+    <div class="absolute top-0 w-full h-full bg-gradient-to-br from-pink-400 via-purple-500 to-indigo-600 opacity-10"></div>
+    
+    <div class="container relative mx-auto px-4">
+        <div class="flex flex-wrap items-center">
+            <!-- 右侧游戏区域 -->
+            <div class="w-full lg:w-7/12 px-4 ml-auto mr-auto mt-12 lg:mt-0">
+                <div class="relative">
+                    <!-- 装饰效果 -->
+                    <div class="absolute -top-4 -left-4 w-72 h-72 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+                    <div class="absolute -bottom-4 -right-4 w-72 h-72 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+                    
+                    <!-- 游戏区域 -->
+                    <div class="relative rounded-[20px] overflow-hidden shadow-lg bg-gray-100 max-w-[600px] mx-auto">
+                        <div class="game-container aspect-4-3">
+                            <div class="content">
+                                <!-- 游戏封面图 -->
+                                <div class="w-1/2 sm:w-2/5 md:w-1/3 lg:w-1/4 max-w-[100px] mb-6">
+                                    
+                                    <img src="/static/images/games/sprunki-idle-clicker-preview.png"
+                                         alt="Sprunki Idle Clicker"
+                                         class="w-full h-auto rounded-[8px] shadow-md"
+                                         onerror="this.onerror=null; this.src='/static/images/favicon/sprunki-idle-clicker-apple-touch-icon.png'">
+                                </div>
+                                
+                                <!-- 开始游戏按钮 -->
+                                
+                                <button
+                                onclick="loadGame(this, 'https://html5.gamemonetize.co/jne74tcr5q19bt3rym1bqgrip48q30km/')"
+                                   class="group relative px-8 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-full transform transition-all duration-300 hover:scale-105 flex items-center space-x-2 shadow-md cursor-pointer">
+                                    <span class="relative z-10 font-medium text-lg">Play Now</span>
+                                    <svg class="w-5 h-5 relative z-10 transform transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    </svg>
+                                </button>
+                                
+                                <!-- 网站URL -->
+                                <div class="mt-6 text-gray-500 text-sm tracking-widest uppercase">
+                                    S P R A N K I . A R T
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 左侧文案区域 -->
+            <div class="w-full lg:w-5/12 px-4 ml-auto mr-auto text-center lg:text-left">
+                <div class="pr-12">
+                    <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6">
+                        <span class="bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent">
+                            Sprunki Idle Clicker
+                        </span>
+                        
+                    </h1>
+                    <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
+                        Tap and collect in Sprunki Idle Clicker! Unlock cute Sprunkies and grow your collection in this addictive clicker adventure filled with fun.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+
+    <!-- Trending Games Section -->
+    
+    <!-- Trending Games Section -->
+<div class="py-8 sm:py-12 bg-gray-50 dark:bg-gray-900">
+    <div class="container mx-auto px-2 sm:px-4">
+        <h2 class="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center bg-gradient-to-r from-red-600 via-red-500 to-black bg-clip-text text-transparent">
+            Trending games like Sprunki Idle Clicker
+        </h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 sm:gap-3">
+            <!-- Dadish Card -->
+            <a href="https://spranki.art/dadish" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+                <!-- 上方是游戏封面图 -->
+                <div class="relative">
+                    <img src="/static/images/games/dadish.png" 
+                         alt="Dadish img"
+                         loading="lazy" 
+                         class="w-full aspect-[4/3] object-cover">
+                    <!-- 悬停效果 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <!-- 下方是游戏标题 -->
+                <div class="p-2 bg-gray-100 dark:bg-gray-800">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+                        Dadish
+                    </p>
+                </div>
+            </a> 
+            <!-- God Simulator Card -->
+             <a href="https://spranki.art/god-simulator" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+                <!-- 上方是游戏封面图 -->
+                <div class="relative">
+                    <img src="/static/images/games/god-simulator.png" 
+                         alt="God Simulator img"
+                         loading="lazy" 
+                         class="w-full aspect-[4/3] object-cover">
+                    <!-- 悬停效果 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <!-- 下方是游戏标题 -->
+                <div class="p-2 bg-gray-100 dark:bg-gray-800">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+                        God Simulator
+                    </p>
+                </div>
+            </a>
+            <!-- Ssspicy Card -->
+            <a href="https://spranki.art/ssspicy" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+                <!-- 上方是游戏封面图 -->
+                <div class="relative">
+                    <img src="/static/images/games/ssspicy.png" 
+                         alt="Ssspicy img"
+                         loading="lazy" 
+                         class="w-full aspect-[4/3] object-cover">
+                    <!-- 悬停效果 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <!-- 下方是游戏标题 -->
+                <div class="p-2 bg-gray-100 dark:bg-gray-800">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+                        Ssspicy
+                    </p>
+                </div>
+            </a>
+            <!-- Sprunki Lily Card -->
+            <a href="https://spranki.art/sprunki-lily" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+                <!-- 上方是游戏封面图 -->
+                <div class="relative">
+                    <img src="/static/images/games/sprunki-lily.png" 
+                         alt="Sprunki Lily img"
+                         loading="lazy" 
+                         class="w-full aspect-[4/3] object-cover">
+                    <!-- 悬停效果 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <!-- 下方是游戏标题 -->
+                <div class="p-2 bg-gray-100 dark:bg-gray-800">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+                        Sprunki - Lily
+                    </p>
+                </div>
+            </a>
+            <!-- Internet Roadtrip Card -->
+            <a href="https://spranki.art/internet-roadtrip" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+                <!-- 上方是游戏封面图 -->
+                <div class="relative">
+                    <img src="/static/images/games/internet-roadtrip.png"
+                         alt="Internet Roadtrip img"
+                         loading="lazy" 
+                         class="w-full aspect-[4/3] object-cover">
+                    <!-- 悬停效果 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <!-- 下方是游戏标题 -->
+                <div class="p-2 bg-gray-100 dark:bg-gray-800">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+                        Internet Roadtrip
+                    </p>
+                </div>
+            </a>
+            <!-- Sprunki Idle Clicker Card -->
+            <a href="https://spranki.art/sprunki-idle-clicker" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+                <!-- 上方是游戏封面图 -->
+                <div class="relative">
+                    <img src="/static/images/games/sprunki-idle-clicker.png"
+                         alt="Sprunki Idle Clicker img"
+                         loading="lazy" 
+                         class="w-full aspect-[4/3] object-cover">
+                    <!-- 悬停效果 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <!-- 下方是游戏标题 -->
+                <div class="p-2 bg-gray-100 dark:bg-gray-800">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+                        Sprunki Idle Clicker
+                    </p>
+                </div>
+            </a>
+             <!-- Yet Another Boring Old Sprunki Mod Card -->
+             <a href="https://spranki.art/yet-another-boring-old-sprunki-mod" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+                <!-- 上方是游戏封面图 -->
+                <div class="relative">
+                    <img src="/static/images/games/yet-another-boring-old-sprunki-mod.png"
+                         alt="Yet Another Boring Old Sprunki Mod img"
+                         loading="lazy" 
+                         class="w-full aspect-[4/3] object-cover">
+                    <!-- 悬停效果 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <!-- 下方是游戏标题 -->
+                <div class="p-2 bg-gray-100 dark:bg-gray-800">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+                        Yet Another Boring Old Sprunki Mod
+                    </p>
+                </div>
+            </a>
+            <!-- Sprunki Wenda Edition Card -->
+            <a href="https://spranki.art/sprunki-wenda-edition" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+                <!-- 上方是游戏封面图 -->
+                <div class="relative">
+                    <img src="/static/images/games/sprunki-wenda-edition.png"
+                         alt="Sprunki Wenda Edition img"
+                         loading="lazy" 
+                         class="w-full aspect-[4/3] object-cover">
+                    <!-- 悬停效果 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <!-- 下方是游戏标题 -->
+                <div class="p-2 bg-gray-100 dark:bg-gray-800">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+                        Sprunki - Wenda Edition
+                    </p>
+                </div>
+            </a>
+            <!-- Sprunki Pyramixed Ultimate Deluxe Card -->
+            <a href="https://spranki.art/sprunki-pyramixed-ultimate-deluxe" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+                <!-- 上方是游戏封面图 -->
+                <div class="relative">
+                    <img src="/static/images/games/sprunki-pyramixed-ultimate-deluxe.png"
+                        alt="Sprunki Pyramixed Ultimate Deluxe img"
+                        loading="lazy" 
+                        class="w-full aspect-[4/3] object-cover">
+                    <!-- 悬停效果 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <!-- 下方是游戏标题 -->
+                <div class="p-2 bg-gray-100 dark:bg-gray-800">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+                        Sprunki - Pyramixed Ultimate Deluxe
+                    </p>
+                </div>
+            </a>
+            <!-- Sprunki Chaotic Good Card -->
+            <a href="https://spranki.art/sprunki-chaotic-good" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+                <!-- 上方是游戏封面图 -->
+                <div class="relative">
+                    <img src="/static/images/games/sprunki-chaotic-good.png"
+                        alt="Sprunki Chaotic Good img"
+                        loading="lazy" 
+                        class="w-full aspect-[4/3] object-cover">
+                    <!-- 悬停效果 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <!-- 下方是游戏标题 -->
+                <div class="p-2 bg-gray-100 dark:bg-gray-800">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+                        Sprunki - Chaotic Good
+                    </p>
+                </div>
+            </a>
+            <!-- Sprunki Pyramixed Melophobia Card -->
+            <a href="https://spranki.art/sprunki-pyramixed-melophobia" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+                <!-- 上方是游戏封面图 -->
+                <div class="relative">
+                    <img src="/static/images/games/sprunki-pyramixed-melophobia.png"
+                        alt="Sprunki Pyramixed Melophobia img"
+                        loading="lazy" 
+                        class="w-full aspect-[4/3] object-cover">
+                    <!-- 悬停效果 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <!-- 下方是游戏标题 -->
+                <div class="p-2 bg-gray-100 dark:bg-gray-800">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+                        Sprunki - Pyramixed Melophobia
+                    </p>
+                </div>
+            </a>
+            <!-- Sprunki Misfismix Card -->
+            <a href="https://spranki.art/sprunki-misfismix" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+                <!-- 上方是游戏封面图 -->
+                <div class="relative">
+                    <img src="/static/images/games/sprunki-misfismix.png"
+                        alt="Sprunki Misfismix img"
+                        loading="lazy" 
+                        class="w-full aspect-[4/3] object-cover">
+                    <!-- 悬停效果 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-500 via-cyan-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <!-- 下方是游戏标题 -->
+                <div class="p-2 bg-gray-100 dark:bg-gray-800">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+                        Sprunki - Misfismix
+                    </p>
+                </div>
+            </a>
+            <!-- Sprunki Sploinkers Card -->
+            <a href="https://spranki.art/sprunki-sploinkers" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+                <!-- 上方是游戏封面图 -->
+                <div class="relative">
+                    <img src="/static/images/games/sprunki-sploinkers.png"
+                        alt="Sprunki Sploinkers img"
+                        loading="lazy" 
+                        class="w-full aspect-[4/3] object-cover">
+                    <!-- 悬停效果 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-500 via-cyan-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <!-- 下方是游戏标题 -->
+                <div class="p-2 bg-gray-100 dark:bg-gray-800">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+                        Sprunki - Sploinkers
+                    </p>
+                </div>
+            </a>
+            <!-- Incredibox Irrelevant Reunion Card -->
+            <a href="https://spranki.art/incredibox-irrelevant-reunion" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+                <!-- 上方是游戏封面图 -->
+                <div class="relative">
+                    <img src="/static/images/games/incredibox-irrelevant-reunion.png"
+                        alt="Incredibox Irrelevant Reunion img"
+                        loading="lazy" 
+                        class="w-full aspect-[4/3] object-cover">
+                    <!-- 悬停效果 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-500 via-cyan-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <!-- 下方是游戏标题 -->
+                <div class="p-2 bg-gray-100 dark:bg-gray-800">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+                        Incredibox - Irrelevant Reunion
+                    </p>
+                </div>
+            </a>
+            <!-- Incredibox Rainbow Animal Card -->
+            <a href="https://spranki.art/incredibox-rainbow-animal" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+                <!-- 上方是游戏封面图 -->
+                <div class="relative">
+                    <img src="/static/images/games/incredibox-rainbow-animal.png"
+                        alt="Incredibox Rainbow Animal img"
+                        loading="lazy" 
+                        class="w-full aspect-[4/3] object-cover">
+                    <!-- 悬停效果 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-500 via-cyan-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <!-- 下方是游戏标题 -->
+                <div class="p-2 bg-gray-100 dark:bg-gray-800">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+                        Incredibox - Rainbow Animal
+                    </p>
+                </div>
+            </a>
+            <!-- Sprunki Phase 6 Definitive All Alive Card -->
+            <a href="https://spranki.art/sprunki-phase-6-definitive-all-alive" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+                <!-- 上方是游戏封面图 -->
+                <div class="relative">
+                    <img src="/static/images/games/sprunki-phase-6-definitive-all-alive.png"
+                        alt="Sprunki Phase 6 Definitive All Alive img"
+                        loading="lazy" 
+                        class="w-full aspect-[4/3] object-cover">
+                    <!-- 悬停效果 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-500 via-cyan-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <!-- 下方是游戏标题 -->
+                <div class="p-2 bg-gray-100 dark:bg-gray-800">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+                        Sprunki - Phase 6 Definitive All Alive
+                    </p>
+                </div>
+            </a>
+            <!-- Sprunki Phase 6 Definitive Remaster Card -->
+            <a href="https://spranki.art/sprunki-phase-6-definitive-remaster" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+                <!-- 上方是游戏封面图 -->
+                <div class="relative">
+                    <img src="/static/images/games/sprunki-phase-6-definitive-remaster.png"
+                        alt="Sprunki Phase 6 Definitive Remaster img"
+                        loading="lazy" 
+                        class="w-full aspect-[4/3] object-cover">
+                    <!-- 悬停效果 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-500 via-cyan-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <!-- 下方是游戏标题 -->
+                <div class="p-2 bg-gray-100 dark:bg-gray-800">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+                        Sprunki - Phase 6 Definitive Remaster
+                    </p>
+                </div>
+            </a>
+            <!-- Sprunki Phase 6 Definitive Card -->
+            <a href="https://spranki.art/sprunki-phase-6-definitive" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+                <!-- 上方是游戏封面图 -->
+                <div class="relative">
+                    <img src="/static/images/games/sprunki-phase-6-definitive.png"
+                        alt="Sprunki Phase 6 Definitive img"
+                        loading="lazy" 
+                        class="w-full aspect-[4/3] object-cover">
+                    <!-- 悬停效果 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-500 via-cyan-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <!-- 下方是游戏标题 -->
+                <div class="p-2 bg-gray-100 dark:bg-gray-800">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+                        Sprunki - Phase 6 Definitive
+                    </p>
+                </div>
+            </a>
+            <!-- Sprunka Card -->
+            <a href="https://spranki.art/sprunka" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+                <!-- 上方是游戏封面图 -->
+                <div class="relative">
+                    <img src="/static/images/games/sprunka.png"
+                        alt="Sprunka img"
+                        loading="lazy" 
+                        class="w-full aspect-[4/3] object-cover">
+                    <!-- 悬停效果 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-500 via-cyan-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <!-- 下方是游戏标题 -->
+                <div class="p-2 bg-gray-100 dark:bg-gray-800">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+                        Sprunka
+                    </p>
+                </div>
+            </a>
+            <!-- Sprunki Pyramixed Regretful Card -->
+            <a href="https://spranki.art/sprunki-pyramixed-regretful" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+                <!-- 上方是游戏封面图 -->
+                <div class="relative">
+                    <img src="/static/images/games/sprunki-pyramixed-regretful.png"
+                        alt="Sprunki Pyramixed Regretful img"
+                        loading="lazy" 
+                        class="w-full aspect-[4/3] object-cover">
+                    <!-- 悬停效果 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-500 via-cyan-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <!-- 下方是游戏标题 -->
+                <div class="p-2 bg-gray-100 dark:bg-gray-800">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+                        Sprunki Pyramixed Regretful
+                    </p>
+                </div>
+            </a>
+            <!-- Sprunklings Card -->
+            <a href="https://spranki.art/sprunklings" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+                <!-- 上方是游戏封面图 -->
+                <div class="relative">
+                    <img src="/static/images/games/sprunklings.png"
+                        alt="Sprunklings img"
+                        loading="lazy" 
+                        class="w-full aspect-[4/3] object-cover">
+                    <!-- 悬停效果 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-500 via-cyan-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <!-- 下方是游戏标题 -->
+                <div class="p-2 bg-gray-100 dark:bg-gray-800">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+                        Sprunklings
+                    </p>
+                </div>
+            </a>
+            <!-- Sprunki Brud Edition Finale Card -->
+            <a href="https://spranki.art/sprunki-brud-edition-finale" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+                <!-- 上方是游戏封面图 -->
+                <div class="relative">
+                    <img src="/static/images/games/sprunki-brud-edition-finale.png"
+                        alt="Sprunki Brud Edition Finale img"
+                        loading="lazy" 
+                        class="w-full aspect-[4/3] object-cover">
+                    <!-- 悬停效果 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-500 via-cyan-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <!-- 下方是游戏标题 -->
+                <div class="p-2 bg-gray-100 dark:bg-gray-800">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+                        Sprunki Brud Edition Finale
+                    </p>
+                </div>
+            </a>
+            <!-- Sprunki Swap Retextured Card -->
+            <a href="https://spranki.art/sprunki-swap-retextured" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+                <!-- 上方是游戏封面图 -->
+                <div class="relative">
+                    <img src="/static/images/games/sprunki-swap-retextured.png"
+                        alt="Sprunki Swap Retextured img"
+                        loading="lazy" 
+                        class="w-full aspect-[4/3] object-cover">
+                    <!-- 悬停效果 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-500 via-cyan-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <!-- 下方是游戏标题 -->
+                <div class="p-2 bg-gray-100 dark:bg-gray-800">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+                        Sprunki Swap Retextured
+                    </p>
+                </div>
+            </a>
+            <!-- Sprunki Upin Ipin Card -->
+            <a href="https://spranki.art/sprunki-upin-ipin" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+                <!-- 上方是游戏封面图 -->
+                <div class="relative">
+                    <img src="/static/images/games/sprunki-upin-ipin.png"
+                        alt="Sprunki Upin Ipin img"
+                        loading="lazy" 
+                        class="w-full aspect-[4/3] object-cover">
+                    <!-- 悬停效果 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-500 via-cyan-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <!-- 下方是游戏标题 -->
+                <div class="p-2 bg-gray-100 dark:bg-gray-800">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+                        Sprunki - Upin Ipin
+                    </p>
+                </div>
+            </a>
+            <!-- Sprunki Ultimate Deluxe Card -->
+            <a href="https://spranki.art/sprunki-ultimate-deluxe" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+                <!-- 上方是游戏封面图 -->
+                <div class="relative">
+                    <img src="/static/images/games/sprunki-ultimate-deluxe.png"
+                        alt="Sprunki Ultimate Deluxe img"
+                        loading="lazy" 
+                        class="w-full aspect-[4/3] object-cover">
+                    <!-- 悬停效果 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-500 via-cyan-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <!-- 下方是游戏标题 -->
+                <div class="p-2 bg-gray-100 dark:bg-gray-800">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+                        Sprunki - Ultimate Deluxe
+                    </p>
+                </div>
+            </a>
+            <!-- Sprunki Retake But Human Card -->
+            <a href="https://spranki.art/sprunki-retake-but-human" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+                <!-- 上方是游戏封面图 -->
+                <div class="relative">
+                    <img src="/static/images/games/sprunki-retake-but-human.png"
+                        alt="Sprunki Retake But Human img"
+                        loading="lazy" 
+                        class="w-full aspect-[4/3] object-cover">
+                    <!-- 悬停效果 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-500 via-cyan-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <!-- 下方是游戏标题 -->
+                <div class="p-2 bg-gray-100 dark:bg-gray-800">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+                        Sprunki - Retake But Human
+                    </p>
+                </div>
+            </a>
+            <!-- Sprunki Retake New Human Card -->
+            <a href="https://spranki.art/sprunki-retake-new-human" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+                <!-- 上方是游戏封面图 -->
+                <div class="relative">
+                    <img src="/static/images/games/sprunki-retake-new-human.png"
+                        alt="Sprunki Retake New Human img"
+                        loading="lazy" 
+                        class="w-full aspect-[4/3] object-cover">
+                    <!-- 悬停效果 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-500 via-cyan-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <!-- 下方是游戏标题 -->
+                <div class="p-2 bg-gray-100 dark:bg-gray-800">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+                        Sprunki - Retake New Human
+                    </p>
+                </div>
+            </a>
+            <!-- Sprunki Agents Card -->
+            <a href="https://spranki.art/sprunki-agents" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+                <!-- 上方是游戏封面图 -->
+                <div class="relative">
+                    <img src="/static/images/games/sprunki-agents.png"
+                        alt="Sprunki Agents img"
+                        loading="lazy" 
+                        class="w-full aspect-[4/3] object-cover">
+                    <!-- 悬停效果 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-500 via-cyan-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <!-- 下方是游戏标题 -->
+                <div class="p-2 bg-gray-100 dark:bg-gray-800">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+                        Sprunki - Agents
+                    </p>
+                </div>
+            </a>
+             <!-- Sprunki 1996 Card -->
+             <a href="https://spranki.art/sprunki-1996" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+                <!-- 上方是游戏封面图 -->
+                <div class="relative">
+                    <img src="/static/images/games/sprunki-1996.png"
+                        alt="Sprunki 1996 img"
+                        loading="lazy" 
+                        class="w-full aspect-[4/3] object-cover">
+                    <!-- 悬停效果 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-500 via-cyan-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <!-- 下方是游戏标题 -->
+                <div class="p-2 bg-gray-100 dark:bg-gray-800">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+                        Sprunki - 1996
+                    </p>
+                </div>
+            </a>    
+            <!-- Sprunki Shatter Card -->
+            <a href="https://spranki.art/sprunki-shatter" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+                <!-- 上方是游戏封面图 -->
+                <div class="relative">
+                    <img src="/static/images/games/sprunki-shatter.png" 
+                         alt="Sprunki Shatter img"
+                         loading="lazy" 
+                         class="w-full aspect-[4/3] object-cover">
+                    <!-- 悬停效果 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-700/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <!-- 下方是游戏标题 -->
+                <div class="p-2 bg-gray-100 dark:bg-gray-800">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+                        Sprunki - Shatter
+                    </p>
+                </div>
+            </a>
+            <!-- Sprunki Spfundi Card -->
+            <a href="https://spranki.art/sprunki-spfundi" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+                <!-- 上方是游戏封面图 -->
+                <div class="relative">
+                    <img src="/static/images/games/sprunki-spfundi.png"
+                        alt="Sprunki Spfundi img"
+                        loading="lazy" 
+                        class="w-full aspect-[4/3] object-cover">
+                    <!-- 悬停效果 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-500 via-cyan-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <!-- 下方是游戏标题 -->
+                <div class="p-2 bg-gray-100 dark:bg-gray-800">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+                        Sprunki - Spfundi
+                    </p>
+                </div>
+            </a>
+            <!-- Sprunki Angry Card -->
+            <a href="https://spranki.art/sprunki-angry" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+                <!-- 上方是游戏封面图 -->
+                <div class="relative">
+                    <img src="/static/images/games/sprunki-angry.png"
+                        alt="Sprunki Angry img"
+                        loading="lazy" 
+                        class="w-full aspect-[4/3] object-cover">
+                    <!-- 悬停效果 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-500 via-cyan-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <!-- 下方是游戏标题 -->
+                <div class="p-2 bg-gray-100 dark:bg-gray-800">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+                        Sprunki - Angry
+                    </p>
+                </div>
+            </a>
+            <!-- Sprunki Phase 1.7 Card -->
+            <a href="https://spranki.art/sprunki-phase-1-7" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+                <!-- 上方是游戏封面图 -->
+                <div class="relative">
+                    <img src="/static/images/games/sprunki-phase-1-7.png"
+                        alt="Sprunki Phase 1.7 img"
+                        loading="lazy" 
+                        class="w-full aspect-[4/3] object-cover">
+                    <!-- 悬停效果 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-500 via-cyan-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <!-- 下方是游戏标题 -->
+                <div class="p-2 bg-gray-100 dark:bg-gray-800">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+                        Sprunki - Phase 1.7
+                    </p>
+                </div>
+            </a>
+            <!-- Sprunki Phase 777 3.7 Card -->
+            <a href="https://spranki.art/sprunki-phase-777-3-7" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+                <!-- 上方是游戏封面图 -->
+                <div class="relative">
+                    <img src="/static/images/games/sprunki-phase-777-3-7.png"
+                        alt="Sprunki Phase 777 3.7 img"
+                        loading="lazy" 
+                        class="w-full aspect-[4/3] object-cover">
+                    <!-- 悬停效果 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-500 via-cyan-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <!-- 下方是游戏标题 -->
+                <div class="p-2 bg-gray-100 dark:bg-gray-800">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+                        Sprunki - Phase 777 3.7
+                    </p>
+                </div>
+            </a>
+            <!-- Sprunki Phase 19 Update Card -->
+            <a href="https://spranki.art/sprunki-phase-19-update" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+                <!-- 上方是游戏封面图 -->
+                <div class="relative">
+                    <img src="/static/images/games/sprunki-phase-19-update.png"
+                        alt="Sprunki Phase 19 Update img"
+                        loading="lazy" 
+                        class="w-full aspect-[4/3] object-cover">
+                    <!-- 悬停效果 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-500 via-cyan-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <!-- 下方是游戏标题 -->
+                <div class="p-2 bg-gray-100 dark:bg-gray-800">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+                        Sprunki - Phase 19 Update
+                    </p>
+                </div>
+            </a>
+            <!-- Sprunki DX Card -->
+            <a href="https://spranki.art/sprunki-dx" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+                <!-- 上方是游戏封面图 -->
+                <div class="relative">
+                    <img src="/static/images/games/sprunki-dx.png"
+                        alt="Sprunki DX img"
+                        loading="lazy" 
+                        class="w-full aspect-[4/3] object-cover">
+                    <!-- 悬停效果 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-500 via-cyan-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <!-- 下方是游戏标题 -->
+                <div class="p-2 bg-gray-100 dark:bg-gray-800">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+                        Sprunki - DX
+                    </p>
+                </div>
+            </a>
+            <!-- Sprunki Grown Up Card -->
+            <a href="https://spranki.art/sprunki-grown-up" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+                <!-- 上方是游戏封面图 -->
+                <div class="relative">
+                    <img src="/static/images/games/sprunki-grown-up.png"
+                        alt="Sprunki Grown Up img"
+                        loading="lazy" 
+                        class="w-full aspect-[4/3] object-cover">
+                    <!-- 悬停效果 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-500 via-cyan-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <!-- 下方是游戏标题 -->
+                <div class="p-2 bg-gray-100 dark:bg-gray-800">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+                        Sprunki - Grown Up
+                    </p>
+                </div>
+            </a>
+            <!-- Sprunki Sprunksters Card -->
+            <a href="https://spranki.art/sprunki-sprunksters" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+                <!-- 上方是游戏封面图 -->
+                <div class="relative">
+                    <img src="/static/images/games/sprunki-sprunksters.png" 
+                         alt="Sprunki Sprunksters img"
+                         loading="lazy" 
+                         class="w-full aspect-[4/3] object-cover">
+                    <!-- 悬停效果 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-700/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <!-- 下方是游戏标题 -->
+                <div class="p-2 bg-gray-100 dark:bg-gray-800">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+                        Sprunki - Sprunksters
+                    </p>
+                </div>
+            </a>
+            <!-- Sprunki Pyramixed Card -->
+            <a href="https://spranki.art/sprunki-pyramixed" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+                <!-- 上方是游戏封面图 -->
+                <div class="relative">
+                    <img src="/static/images/games/sprunki-pyramixed.png" 
+                         alt="Sprunki Pyramixed img"
+                         loading="lazy" 
+                         class="w-full aspect-[4/3] object-cover">
+                    <!-- 悬停效果 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-700/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <!-- 下方是游戏标题 -->
+                <div class="p-2 bg-gray-100 dark:bg-gray-800">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+                        Sprunki - Pyramixed
+                    </p>
+                </div>
+            </a>
+  <!-- Sprunki Spruted Card --> 
+  <a href="https://spranki.art/sprunki-spruted" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+    <!-- 上方是游戏封面图 -->
+    <div class="relative">
+        <img src="/static/images/games/sprunki-spruted.png" 
+             alt="Sprunki Spruted img"
+             loading="lazy" 
+             class="w-full aspect-[4/3] object-cover">
+        <!-- 悬停效果 -->
+        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-700/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    </div>
+    <!-- 下方是游戏标题 -->
+    <div class="p-2 bg-gray-100 dark:bg-gray-800">
+        <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+            Sprunki - Spruted
+        </p>
+    </div>
+</a>
+   <!-- Sprunki Ketchup Card -->
+   <a href="https://spranki.art/sprunki-ketchup" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+    <!-- 上方是游戏封面图 -->
+    <div class="relative">
+        <img src="/static/images/games/sprunki-ketchup.png" 
+             alt="Sprunki Ketchup img"
+             loading="lazy" 
+             class="w-full aspect-[4/3] object-cover">
+        <!-- 悬停效果 -->
+        <div class="absolute inset-0 bg-gradient-to-t from-red-900 via-red-700 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    </div>
+    <!-- 下方是游戏标题 -->
+    <div class="p-2 bg-gray-100 dark:bg-gray-800">
+        <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+            Sprunki - Ketchup
+        </p>
+    </div>
+</a>
+  <!-- Sprunki Banana Card -->
+  <a href="https://spranki.art/sprunki-banana" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+    <!-- 上方是游戏封面图 -->
+    <div class="relative">
+        <img src="/static/images/games/sprunki-banana.png" 
+             alt="Sprunki Banana img"
+             loading="lazy" 
+             class="w-full aspect-[4/3] object-cover">
+        <!-- 悬停效果 -->
+        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-700/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    </div>
+    <!-- 下方是游戏标题 -->
+    <div class="p-2 bg-gray-100 dark:bg-gray-800">
+        <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+            Sprunki - Banana
+        </p>
+    </div>
+</a>
+            <!-- Sprunki Megalovania Card -->
+            <a href="https://spranki.art/sprunki-megalovania" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+                <!-- 上方是游戏封面图 -->
+                <div class="relative">
+                    <img src="/static/images/games/sprunki-megalovania.png" 
+                         alt="Sprunki Megalovania img"
+                         loading="lazy" 
+                         class="w-full aspect-[4/3] object-cover">
+                    <!-- 悬停效果 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-700/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <!-- 下方是游戏标题 -->
+                <div class="p-2 bg-gray-100 dark:bg-gray-800">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+                        Sprunki - Megalovania
+                    </p>
+                </div>
+            </a>
+          
+            <!-- Sprunki Sprunkr Card -->
+            <a href="https://spranki.art/sprunki-sprunkr" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+                <!-- 上方是游戏封面图 -->
+                <div class="relative">
+                    <img src="/static/images/games/sprunki-sprunkr.png" 
+                         alt="Sprunki Sprunkr img"
+                         loading="lazy" 
+                         class="w-full aspect-[4/3] object-cover">
+                    <!-- 悬停效果 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-700/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <!-- 下方是游戏标题 -->
+                <div class="p-2 bg-gray-100 dark:bg-gray-800">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+                        Sprunki - Sprunkr
+                    </p>
+                </div>
+            </a>
+          
+        
+
+<!-- Sprunki Parodybox Card -->
+<a href="https://spranki.art/sprunki-parodybox" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+    <!-- 上方是游戏封面图 -->
+    <div class="relative">
+        <img src="/static/images/games/sprunki-parodybox.png" 
+             alt="Sprunki Parodybox img"
+             loading="lazy" 
+             class="w-full aspect-[4/3] object-cover">
+        <!-- 悬停效果 -->
+        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-700/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    </div>
+    <!-- 下方是游戏标题 -->
+    <div class="p-2 bg-gray-100 dark:bg-gray-800">
+        <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+            Sprunki - Parodybox
+        </p>
+    </div>
+</a>
+<!-- Sprunki Fiddlebops Card -->
+<a href="https://spranki.art/sprunki-fiddlebops" class="group relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105 flex flex-col">
+    <!-- 上方是游戏封面图 -->
+    <div class="relative">
+        <img src="/static/images/games/sprunki-fiddlebops.png" 
+             alt="Sprunki FiddleBops img"
+             loading="lazy" 
+             class="w-full aspect-[4/3] object-cover">
+        <!-- 悬停效果 -->
+        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-700/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    </div>
+    <!-- 下方是游戏标题 -->
+    <div class="p-2 bg-gray-100 dark:bg-gray-800">
+        <p class="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 truncate text-center">
+            Sprunki - FiddleBops
+        </p>
+    </div>
+</a>
+
+        </div>
+    </div>
+</div>
+    
+
+    <!-- FAQ Section -->
+    <!-- FAQ Section Component -->
+<div class="py-12 bg-gray-100 dark:bg-gray-800">
+    <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-red-600 via-red-500 to-black bg-clip-text text-transparent">
+            
+                FAQs for Sprunki Idle Clicker
+            
+        </h2>
+
+        <div class="max-w-4xl mx-auto space-y-8">
+            
+                <!-- FAQ Sections -->
+                
+                    
+                        <div class="mb-12">
+
+                            <div class="space-y-6">
+                                
+                                <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md">
+                                    <h4 class="text-xl font-semibold mb-3 text-gray-700 dark:text-gray-200">
+                                        1. <strong>How do you build your collection in Sprunki Idle Clicker?</strong>
+                                    </h4>
+                                    <div class="text-gray-600 dark:text-gray-300">
+                                        In Sprunki Idle Clicker, you build your collection by tapping to earn points! The points you collect allow you to unlock new Sprunkies, which are cute and collectible characters with unique styles, helping you build your team one tap at a time.
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md">
+                                    <h4 class="text-xl font-semibold mb-3 text-gray-700 dark:text-gray-200">
+                                        2. <strong>What makes Sprunki Idle Clicker enjoyable?</strong>
+                                    </h4>
+                                    <div class="text-gray-600 dark:text-gray-300">
+                                        The game hooks you in with its fast-paced fun, steady progression, and satisfying milestones. You get a dopamine rush from seeing your point total rise and constantly unlocking achievements and new Sprunkies.
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md">
+                                    <h4 class="text-xl font-semibold mb-3 text-gray-700 dark:text-gray-200">
+                                        3. <strong>Can I boost how quickly I earn points?</strong>
+                                    </h4>
+                                    <div class="text-gray-600 dark:text-gray-300">
+                                        Yes! You can spend the points you collect on upgrades and boosts. These are designed to increase your tap power, speed up auto-clicking, and boost your overall point generation so your Sprunky empire grows faster.
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md">
+                                    <h4 class="text-xl font-semibold mb-3 text-gray-700 dark:text-gray-200">
+                                        4. <strong>Does Sprunki Idle Clicker have idle earning?</strong>
+                                    </h4>
+                                    <div class="text-gray-600 dark:text-gray-300">
+                                        Yes, it's an idle clicker game, so it includes features that let you continue earning points even when you are not actively tapping or playing the game.
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md">
+                                    <h4 class="text-xl font-semibold mb-3 text-gray-700 dark:text-gray-200">
+                                        5. <strong>Is Sprunki Idle Clicker suitable for everyone?</strong>
+                                    </h4>
+                                    <div class="text-gray-600 dark:text-gray-300">
+                                        Whether you're a pro at clicker games or completely new, Sprunki Idle Clicker is designed for you. Its simple gameplay and charming style make it an accessible and fun casual gaming experience.
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md">
+                                    <h4 class="text-xl font-semibold mb-3 text-gray-700 dark:text-gray-200">
+                                        6. <strong>What is the ultimate goal in Sprunki Idle Clicker?</strong>
+                                    </h4>
+                                    <div class="text-gray-600 dark:text-gray-300">
+                                        The main goal is to tap your way to endless rewards, unlock all the quirky Sprunkies, build your collection and team, and expand your point-generating empire!
+                                    </div>
+                                </div>
+                                
+                            </div>
+
+                            
+                            <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+                                <h4 class="text-xl font-bold mb-4 text-gray-800 dark:text-white">Conclusion</h4>
+                                <div class="text-gray-600 dark:text-gray-300">
+                                    Sprunki Idle Clicker: A fun and addictive clicker game with cute Sprunkies and steady progression. Build your collection and team to dominate the leaderboards!
+                                </div>
+                            </div>
+                            
+                        </div>
+                    
+                
+            
+        </div>
+    </div>
+</div>
+
+    
+</div>
+
+    </main>
+
+    <!-- Footer Component -->
+<footer class="bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 border-t border-gray-100 dark:border-gray-800">
+    <div class="container mx-auto px-4 py-8">
+        <!-- Top Section -->
+        <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+            <!-- Brand -->
+            <div class="mb-6 md:mb-0">
+                <a href="/" class="text-2xl font-bold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent hover:opacity-90 transition-all duration-300">
+                    Spranki
+                </a>
+                <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                    Sprunki Retake OC Mod, a online fan-made alteration of Incredibox Sprunki rhythm game, enjoy it.
+                </p>
+            </div>
+            
+            <!-- Social Links -->
+            <div class="flex space-x-4">
+                <a href="https://twitter.com/spranki" 
+                   class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-purple-100 dark:hover:bg-purple-900 hover:text-purple-500 dark:hover:text-purple-400 transition-all duration-300"
+                   aria-label="Follow us on Twitter">
+                    <i data-lucide="twitter" class="w-5 h-5"></i>
+                </a>
+                <a href="https://github.com/codeium" 
+                   class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-purple-100 dark:hover:bg-purple-900 hover:text-purple-500 dark:hover:text-purple-400 transition-all duration-300"
+                   aria-label="Visit our GitHub">
+                    <i data-lucide="github" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="h-px bg-gradient-to-r from-purple-500 to-pink-500 opacity-75 my-6"></div>
+
+        <!-- Bottom Section -->
+        <div class="flex flex-col md:flex-row justify-between items-center text-sm">
+            <!-- Copyright -->
+            <p class="text-gray-600 dark:text-gray-400 mb-4 md:mb-0">
+                2025 Spranki. All rights reserved.
+            </p>
+
+            <!-- Legal Links -->
+            <div class="flex items-center space-x-8">
+                <a href="/privacy-policy" 
+                   class="text-gray-600 dark:text-gray-400 hover:text-purple-500 dark:hover:text-purple-400 transition-colors duration-300">
+                    Privacy Policy
+                </a>
+                <span class="text-gray-300 dark:text-gray-700">|</span>
+                <a href="/terms-of-service" 
+                   class="text-gray-600 dark:text-gray-400 hover:text-purple-500 dark:hover:text-purple-400 transition-colors duration-300">
+                    Terms of Service
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- JavaScript -->
+    <script src="/static/js/main.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest"></script>
+    <script>lucide.createIcons();</script>
+    
+</body>
+</html>

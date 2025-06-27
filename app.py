@@ -1,16 +1,9 @@
-from flask import Flask, render_template, request, flash, redirect, url_for, send_from_directory
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
+from flask import Flask, render_template, send_from_directory
 import os
-from dotenv import load_dotenv
 import json
 import logging
 
-load_dotenv()
-
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'your-secret-key-goes-here')
 
 # Set up logging
 app.logger.setLevel(logging.ERROR)
@@ -66,11 +59,9 @@ def ads_txt():
 def introduction():
     return render_template('introduction.html', title='Game Guide - Spranki')
 
-@app.route('/contact', methods=['GET', 'POST'])
+@app.route('/contact')
 def contact():
-    if request.method == 'POST':
-        return send_message()
-    return render_template('contact.html', title='Contact CountryHopper')
+    return render_template('contact.html', title='Contact Spranki')
 
 @app.route('/faq')
 def faq():
@@ -95,22 +86,25 @@ def sprunki_misfismix():
 @app.route('/sprunki-pyramixed')
 def sprunki_pyramixed():
     faq_data = get_faqs_for_page('sprunki-pyramixed')
-    return render_template('sprunki-pyramixed.html',
+    return render_template('game-template.html',
                          page_title='Sprunki Pyramixed',
+                         page_slug='sprunki-pyramixed',
                          faq_data=faq_data)
 
 @app.route('/sprunki-sprunksters')
 def sprunki_sprunksters():
     faq_data = get_faqs_for_page('sprunki-sprunksters')
-    return render_template('sprunki-sprunksters.html',
+    return render_template('game-template.html',
                          page_title='Sprunki Sprunksters',
+                         page_slug='sprunki-sprunksters',
                          faq_data=faq_data)
 
 @app.route('/sprunki-sprured')
 def sprunki_sprured():
     faq_data = get_faqs_for_page('sprunki-sprured')
-    return render_template('sprunki-sprured.html',
+    return render_template('game-template.html',
                          page_title='Sprunki Sprured',
+                         page_slug='sprunki-sprured',
                          faq_data=faq_data)
 
 @app.route('/sprunki-lily')
@@ -124,30 +118,34 @@ def sprunki_lily():
 def sprunki_1996():
     """Sprunki 1996游戏页面路由"""
     faq_data = get_faqs_for_page('sprunki-1996')
-    return render_template('sprunki-1996.html',
-                          page_title='Sprunki 1996',
-                          dynamic_faqs=faq_data['faqs'],
-                          conclusion=faq_data['conclusion'])
+    # 提取正确的数据格式
+    game_data = faq_data.get('sprunki-1996', {})
+    return render_template('sprunki-lily.html',  # 暂时使用现有模板
+                          page_title='Sprunki 1996', 
+                          faq_data=faq_data)
 
 @app.route('/sprunki-shatter')
 def sprunki_shatter():
     faq_data = get_faqs_for_page('sprunki-shatter')
-    return render_template('sprunki-shatter.html',
+    return render_template('game-template.html',
                          page_title='Sprunki Shatter',
+                         page_slug='sprunki-shatter',
                          faq_data=faq_data)
 
 @app.route('/sprunki-fiddlebops')
 def sprunki_fiddlebops():
     faq_data = get_faqs_for_page('sprunki-fiddlebops')
-    return render_template('sprunki-fiddlebops.html',
-                         page_title='Sprunki FiddleBops',
+    return render_template('game-template.html',
+                         page_title='Sprunki Fiddlebops',
+                         page_slug='sprunki-fiddlebops',
                          faq_data=faq_data)
 
 @app.route('/incredibox-rainbow-animal')
 def incredibox_rainbow_animal():
     faq_data = get_faqs_for_page('incredibox-rainbow-animal')
-    return render_template('incredibox-rainbow-animal.html',
-                         page_title='Incredibox Rainbow Animal',
+    return render_template('game-template.html',
+                         page_title='Sprunki Incredibox Rainbow Animal',
+                         page_slug='incredibox-rainbow-animal',
                          faq_data=faq_data)
 
 @app.route('/yet-another-boring-old-sprunki-mod')
@@ -160,57 +158,65 @@ def yet_another_boring_old_sprunki_mod():
 @app.route('/sprunki-wenda-edition')
 def sprunki_wenda_edition():
     faq_data = get_faqs_for_page('sprunki-wenda-edition')
-    return render_template('sprunki-wenda-edition.html',
+    return render_template('game-template.html',
                          page_title='Sprunki Wenda Edition',
+                         page_slug='sprunki-wenda-edition',
                          faq_data=faq_data)
 
 @app.route('/sprunki-pyramixed-ultimate-deluxe')
 def sprunki_pyramixed_ultimate_deluxe():
     faq_data = get_faqs_for_page('sprunki-pyramixed-ultimate-deluxe')
-    return render_template('sprunki-pyramixed-ultimate-deluxe.html',
+    return render_template('game-template.html',
                          page_title='Sprunki Pyramixed Ultimate Deluxe',
+                         page_slug='sprunki-pyramixed-ultimate-deluxe',
                          faq_data=faq_data)
 
 @app.route('/sprunki-chaotic-good')
 def sprunki_chaotic_good():
     faq_data = get_faqs_for_page('sprunki-chaotic-good')
-    return render_template('sprunki-chaotic-good.html',
+    return render_template('game-template.html',
                          page_title='Sprunki Chaotic Good',
+                         page_slug='sprunki-chaotic-good',
                          faq_data=faq_data)
 
 @app.route('/incredibox-irrelevant-reunion')
 def incredibox_irrelevant_reunion():
     faq_data = get_faqs_for_page('incredibox-irrelevant-reunion')
-    return render_template('incredibox-irrelevant-reunion.html',
-                         page_title='Incredibox Irrelevant Reunion',
+    return render_template('game-template.html',
+                         page_title='Sprunki Incredibox Irrelevant Reunion',
+                         page_slug='incredibox-irrelevant-reunion',
                          faq_data=faq_data)
 
 @app.route('/sprunki-pyramixed-melophobia')
 def sprunki_pyramixed_melophobia():
     faq_data = get_faqs_for_page('sprunki-pyramixed-melophobia')
-    return render_template('sprunki-pyramixed-melophobia.html',
+    return render_template('game-template.html',
                          page_title='Sprunki Pyramixed Melophobia',
+                         page_slug='sprunki-pyramixed-melophobia',
                          faq_data=faq_data)
 
 @app.route('/sprunka')
 def sprunka():
     faq_data = get_faqs_for_page('sprunka')
-    return render_template('sprunka.html',
-                         page_title='Sprunka',
+    return render_template('game-template.html',
+                         page_title='Sprunki Sprunka',
+                         page_slug='sprunka',
                          faq_data=faq_data)
 
 @app.route('/sprunki-phase-6-definitive-all-alive')
 def sprunki_phase_6_definitive_all_alive():
     faq_data = get_faqs_for_page('sprunki-phase-6-definitive-all-alive')
-    return render_template('sprunki-phase-6-definitive-all-alive.html',
+    return render_template('game-template.html',
                          page_title='Sprunki Phase 6 Definitive All Alive',
+                         page_slug='sprunki-phase-6-definitive-all-alive',
                          faq_data=faq_data)
 
 @app.route('/sprunki-phase-6-definitive-remaster')
 def sprunki_phase_6_definitive_remaster():
     faq_data = get_faqs_for_page('sprunki-phase-6-definitive-remaster')
-    return render_template('sprunki-phase-6-definitive-remaster.html',
+    return render_template('game-template.html',
                          page_title='Sprunki Phase 6 Definitive Remaster',
+                         page_slug='sprunki-phase-6-definitive-remaster',
                          faq_data=faq_data)
 
 @app.route('/sprunki-idle-clicker')
@@ -223,22 +229,25 @@ def sprunki_idle_clicker():
 @app.route('/sprunki-phase-6-definitive')
 def sprunki_phase_6_definitive():
     faq_data = get_faqs_for_page('sprunki-phase-6-definitive')
-    return render_template('sprunki-phase-6-definitive.html',
+    return render_template('game-template.html',
                          page_title='Sprunki Phase 6 Definitive',
+                         page_slug='sprunki-phase-6-definitive',
                          faq_data=faq_data)
 
 @app.route('/sprunki-sploinkers')
 def sprunki_sploinkers():
     faq_data = get_faqs_for_page('sprunki-sploinkers')
-    return render_template('sprunki-sploinkers.html',
+    return render_template('game-template.html',
                          page_title='Sprunki Sploinkers',
+                         page_slug='sprunki-sploinkers',
                          faq_data=faq_data)
 
 @app.route('/sprunki-pyramixed-regretful')
 def sprunki_pyramixed_regretful():
     faq_data = get_faqs_for_page('sprunki-pyramixed-regretful')
-    return render_template('sprunki-pyramixed-regretful.html',
+    return render_template('game-template.html',
                          page_title='Sprunki Pyramixed Regretful',
+                         page_slug='sprunki-pyramixed-regretful',
                          faq_data=faq_data)
 
 @app.route('/sprunki-megalovania')
@@ -251,29 +260,33 @@ def sprunki_megalovania():
 @app.route('/sprunki-sprunkr')
 def sprunki_sprunkr():
     faq_data = get_faqs_for_page('sprunki-sprunkr')
-    return render_template('sprunki-sprunkr.html',
-                         page_title='Sprunkr',
+    return render_template('game-template.html',
+                         page_title='Sprunki Sprunkr',
+                         page_slug='sprunki-sprunkr',
                          faq_data=faq_data)
 
 @app.route('/sprunki-brud-edition-finale')
 def sprunki_brud_edition_finale():
     faq_data = get_faqs_for_page('sprunki-brud-edition-finale')
-    return render_template('sprunki-brud-edition-finale.html',
+    return render_template('game-template.html',
                          page_title='Sprunki Brud Edition Finale',
+                         page_slug='sprunki-brud-edition-finale',
                          faq_data=faq_data)
 
 @app.route('/sprunki-spruted')
 def sprunki_spruted():
     faq_data = get_faqs_for_page('sprunki-spruted')
-    return render_template('sprunki-spruted.html',
+    return render_template('game-template.html',
                          page_title='Sprunki Spruted',
+                         page_slug='sprunki-spruted',
                          faq_data=faq_data)
 
 @app.route('/sprunki-spfundi')
 def sprunki_spfundi():
     faq_data = get_faqs_for_page('sprunki-spfundi')
-    return render_template('sprunki-spfundi.html',
+    return render_template('game-template.html',
                          page_title='Sprunki Spfundi',
+                         page_slug='sprunki-spfundi',
                          faq_data=faq_data)
 
 @app.route('/internet-roadtrip')
@@ -291,15 +304,17 @@ def internet_roadtrip():
 @app.route('/sprunki-angry')
 def sprunki_angry():
     faq_data = get_faqs_for_page('sprunki-angry')
-    return render_template('sprunki-angry.html',
+    return render_template('game-template.html',
                          page_title='Sprunki Angry',
+                         page_slug='sprunki-angry',
                          faq_data=faq_data)
 
 @app.route('/sprunki-phase-777-3-7')
 def sprunki_phase_777_3_7():
     faq_data = get_faqs_for_page('sprunki-phase-777-3-7')
-    return render_template('sprunki-phase-777-3-7.html',
-                         page_title='Sprunki Phase 777 3.7',
+    return render_template('game-template.html',
+                         page_title='Sprunki Phase 777 3 7',
+                         page_slug='sprunki-phase-777-3-7',
                          faq_data=faq_data)
 
 @app.route('/god-simulator')
@@ -326,106 +341,121 @@ def ssspicy():
 @app.route('/sprunklings')
 def sprunklings():
     faq_data = get_faqs_for_page('sprunki-sprunklings')
-    return render_template('sprunklings.html',
-                         page_title='Sprunklings',
+    return render_template('game-template.html',
+                         page_title='Sprunki Sprunklings',
+                         page_slug='sprunklings',
                          faq_data=faq_data)
 
 @app.route('/sprunki-swap-retextured')
 def sprunki_swap_retextured():
     faq_data = get_faqs_for_page('sprunki-swap-retextured')
-    return render_template('sprunki-swap-retextured.html',
+    return render_template('game-template.html',
                          page_title='Sprunki Swap Retextured',
+                         page_slug='sprunki-swap-retextured',
                          faq_data=faq_data)
 
 @app.route('/sprunki-upin-ipin')
 def sprunki_upin_ipin():
     faq_data = get_faqs_for_page('sprunki-upin-ipin')
-    return render_template('sprunki-upin-ipin.html',
+    return render_template('game-template.html',
                          page_title='Sprunki Upin Ipin',
+                         page_slug='sprunki-upin-ipin',
                          faq_data=faq_data)
 
 @app.route('/sprunki-ultimate-deluxe')
 def sprunki_ultimate_deluxe():
     faq_data = get_faqs_for_page('sprunki-ultimate-deluxe')
-    return render_template('sprunki-ultimate-deluxe.html',
+    return render_template('game-template.html',
                          page_title='Sprunki Ultimate Deluxe',
+                         page_slug='sprunki-ultimate-deluxe',
                          faq_data=faq_data)
 
 @app.route('/sprunki-phase-19-update')
 def sprunki_phase_19_update():
     faq_data = get_faqs_for_page('sprunki-phase-19-update')
-    return render_template('sprunki-phase-19-update.html',
+    return render_template('game-template.html',
                          page_title='Sprunki Phase 19 Update',
+                         page_slug='sprunki-phase-19-update',
                          faq_data=faq_data)
 
 @app.route('/sprunki-phase-1-7')
 def sprunki_phase_1_7():
     faq_data = get_faqs_for_page('sprunki-phase-1-7')
-    return render_template('sprunki-phase-1-7.html',
-                         page_title='Sprunki Phase 1.7',
+    return render_template('game-template.html',
+                         page_title='Sprunki Phase 1 7',
+                         page_slug='sprunki-phase-1-7',
                          faq_data=faq_data)
 
 @app.route('/sprunki-dx')
 def sprunki_dx():
     faq_data = get_faqs_for_page('sprunki-dx')
-    return render_template('sprunki-dx.html',
-                         page_title='Sprunki DX',
+    return render_template('game-template.html',
+                         page_title='Sprunki Dx',
+                         page_slug='sprunki-dx',
                          faq_data=faq_data)
 
 @app.route('/sprunki-banana')
 def sprunki_banana():
     faq_data = get_faqs_for_page('sprunki-banana')
-    return render_template('sprunki-banana.html',
+    return render_template('game-template.html',
                          page_title='Sprunki Banana',
+                         page_slug='sprunki-banana',
                          faq_data=faq_data)
 
 @app.route('/sprunki-garnold')
 def sprunki_garnold():
     faq_data = get_faqs_for_page('sprunki-garnold')
-    return render_template('sprunki-garnold.html',
+    return render_template('game-template.html',
                          page_title='Sprunki Garnold',
+                         page_slug='sprunki-garnold',
                          faq_data=faq_data)
 
 @app.route('/sprunki-ketchup')
 def sprunki_ketchup():
     faq_data = get_faqs_for_page('sprunki-ketchup')
-    return render_template('sprunki-ketchup.html',
+    return render_template('game-template.html',
                          page_title='Sprunki Ketchup',
+                         page_slug='sprunki-ketchup',
                          faq_data=faq_data)
 
 @app.route('/sprunki-agents')
 def sprunki_agents():
     faq_data = get_faqs_for_page('sprunki-agents')
-    return render_template('sprunki-agents.html',
+    return render_template('game-template.html',
                          page_title='Sprunki Agents',
+                         page_slug='sprunki-agents',
                          faq_data=faq_data)
 
 @app.route('/sprunki-banana-porridge')
 def sprunki_banana_porridge():
     faq_data = get_faqs_for_page('sprunki-banana-porridge')
-    return render_template('sprunki-banana-porridge.html',
+    return render_template('game-template.html',
                          page_title='Sprunki Banana Porridge',
+                         page_slug='sprunki-banana-porridge',
                          faq_data=faq_data)
 
 @app.route('/sprunki-retake-but-human')
 def sprunki_retake_but_human():
     faq_data = get_faqs_for_page('sprunki-retake-but-human')
-    return render_template('sprunki-retake-but-human.html',
+    return render_template('game-template.html',
                          page_title='Sprunki Retake But Human',
+                         page_slug='sprunki-retake-but-human',
                          faq_data=faq_data)
 
 @app.route('/sprunki-retake-new-human')
 def sprunki_retake_new_human():
     faq_data = get_faqs_for_page('sprunki-retake-new-human')
-    return render_template('sprunki-retake-new-human.html',
+    return render_template('game-template.html',
                          page_title='Sprunki Retake New Human',
+                         page_slug='sprunki-retake-new-human',
                          faq_data=faq_data)
 
 @app.route('/sprunki-grown-up')
 def sprunki_grown_up():
     faq_data = get_faqs_for_page('sprunki-grown-up')
-    return render_template('sprunki-grown-up.html',
+    return render_template('game-template.html',
                          page_title='Sprunki Grown Up',
+                         page_slug='sprunki-grown-up',
                          faq_data=faq_data)
 
 @app.route('/sprunki-parodybox')
@@ -438,50 +468,6 @@ def sprunki_parodybox():
 @app.route('/robots.txt')
 def robots():
     return send_from_directory('static', 'robots.txt', mimetype='text/plain')
-
-def send_message():
-    name = request.form.get('name')
-    email = request.form.get('email')
-    subject = request.form.get('subject')
-    message = request.form.get('message')
-    
-    if not all([name, email, subject, message]):
-        flash('Please fill in all fields', 'error')
-        return redirect(url_for('contact'))
-    
-    try:
-        email_user = os.getenv('EMAIL_USER')
-        email_password = os.getenv('EMAIL_PASSWORD')
-        
-        if not email_user or not email_password:
-            flash('Email configuration is not set up', 'error')
-            return redirect(url_for('contact'))
-        
-        msg = MIMEMultipart()
-        msg['From'] = email_user
-        msg['To'] = email_user  # Send to yourself
-        msg['Subject'] = f"CountryHopper: {subject} - from {name}"
-        
-        body = f"""
-        Name: {name}
-        Email: {email}
-        Subject: {subject}
-        Message: {message}
-        """
-        msg.attach(MIMEText(body, 'plain'))
-        
-        server = smtplib.SMTP('smtp.gmail.com', 587)
-        server.starttls()
-        server.login(email_user, email_password)
-        server.send_message(msg)
-        server.quit()
-        
-        flash('Thank you for your message! We will get back to you soon.', 'success')
-    except Exception as e:
-        app.logger.error(f"Error sending message: {str(e)}")
-        flash('Sorry, there was a problem sending your message. Please try again later.', 'error')
-    
-    return redirect(url_for('contact'))
 
 if __name__ == '__main__':
     app.run(debug=True, port=5006)

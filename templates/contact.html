@@ -1,91 +1,90 @@
 {% extends "base.html" %}
 
-{% block title %}Contact{% endblock %}
+{% block title %}Contact Spranki{% endblock %}
 
 {% block content %}
 <div class="max-w-6xl mx-auto px-4">
     <section class="py-20">
         <div class="max-w-2xl mx-auto">
-            <h1 class="text-4xl font-bold mb-8">Contact CountryHopper</h1>
+            <h1 class="text-4xl font-bold mb-8">联系 Spranki</h1>
             <p class="text-xl text-gray-600 dark:text-gray-400 mb-12">
-                Have questions about CountryHopper? Want to share feedback or suggestions? 
-                We'd love to hear from you! Fill out the form below and we'll get back to you soon.
+                对 Spranki 游戏有问题或建议？我们很乐意听取您的反馈！
+                请通过以下方式联系我们。
             </p>
 
-            <!-- Contact Form -->
-            <form action="/send-message" method="POST" class="space-y-6">
-                <div>
-                    <label for="name" class="block text-sm font-medium mb-2">Name</label>
-                    <input type="text" id="name" name="name" required
-                           class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 
-                                  bg-white dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 
-                                  focus:border-blue-500 outline-none transition-colors">
-                </div>
-
-                <div>
-                    <label for="email" class="block text-sm font-medium mb-2">Email</label>
-                    <input type="email" id="email" name="email" required
-                           class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 
-                                  bg-white dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 
-                                  focus:border-blue-500 outline-none transition-colors">
-                </div>
-
-                <div>
-                    <label for="subject" class="block text-sm font-medium mb-2">Subject</label>
-                    <select id="subject" name="subject" required
-                            class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 
-                                   bg-white dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 
-                                   focus:border-blue-500 outline-none transition-colors">
-                        <option value="">Select a subject</option>
-                        <option value="feedback">Game Feedback</option>
-                        <option value="bug">Report a Bug</option>
-                        <option value="suggestion">Suggestion</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-
-                <div>
-                    <label for="message" class="block text-sm font-medium mb-2">Message</label>
-                    <textarea id="message" name="message" rows="6" required
-                              class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 
-                                     bg-white dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 
-                                     focus:border-blue-500 outline-none transition-colors"></textarea>
-                </div>
-
-                <button type="submit" 
-                        class="w-full px-6 py-3 bg-blue-500 text-white rounded-lg 
-                               hover:bg-blue-600 transition-colors">
-                    Send Message
-                </button>
-            </form>
-
-            <!-- Additional Contact Info -->
-            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="text-center">
-                    <div class="w-12 h-12 mx-auto bg-blue-100 dark:bg-blue-900 rounded-full 
-                                flex items-center justify-center mb-4">
-                        <i class="fas fa-envelope text-blue-500"></i>
+            <!-- Contact Information -->
+            <div class="bg-white dark:bg-gray-800 rounded-xl p-8 mb-12 shadow-lg">
+                <h2 class="text-2xl font-bold mb-6">联系方式</h2>
+                <div class="space-y-4">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-blue-100 dark:bg-blue-900 rounded-full 
+                                    flex items-center justify-center mr-4">
+                            <i class="fas fa-envelope text-blue-500"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">邮箱</h3>
+                            <p class="text-gray-600 dark:text-gray-400">contact@spranki.art</p>
+                        </div>
                     </div>
-                    <h3 class="font-bold mb-2">Email</h3>
-                    <p class="text-gray-600 dark:text-gray-400">support@countryhopper.online</p>
+                    
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-purple-100 dark:bg-purple-900 rounded-full 
+                                    flex items-center justify-center mr-4">
+                            <i class="fas fa-globe text-purple-500"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">官方网站</h3>
+                            <p class="text-gray-600 dark:text-gray-400">spranki.art</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Suggestion -->
+            <div class="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 
+                        rounded-xl p-8 mb-12">
+                <h2 class="text-2xl font-bold mb-4">常见问题</h2>
+                <p class="text-gray-600 dark:text-gray-400 mb-6">
+                    在联系我们之前，建议您先查看我们的常见问题页面，可能已经有您需要的答案。
+                </p>
+                <a href="/faq" class="inline-block bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-colors">
+                    查看常见问题
+                </a>
+            </div>
+
+            <!-- Game Community -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
+                    <div class="w-16 h-16 mx-auto bg-green-100 dark:bg-green-900 rounded-full 
+                                flex items-center justify-center mb-4">
+                        <i class="fas fa-gamepad text-green-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">游戏反馈</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        发现游戏bug或有改进建议？直接发邮件告诉我们！
+                    </p>
                 </div>
 
-                <div class="text-center">
-                    <div class="w-12 h-12 mx-auto bg-blue-100 dark:bg-blue-900 rounded-full 
+                <div class="text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
+                    <div class="w-16 h-16 mx-auto bg-orange-100 dark:bg-orange-900 rounded-full 
                                 flex items-center justify-center mb-4">
-                        <i class="fas fa-globe text-blue-500"></i>
+                        <i class="fas fa-lightbulb text-orange-500 text-2xl"></i>
                     </div>
-                    <h3 class="font-bold mb-2">Website</h3>
-                    <p class="text-gray-600 dark:text-gray-400">countryhopper.online</p>
+                    <h3 class="text-xl font-bold mb-2">合作建议</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        有创意想法或合作意向？我们期待与您交流！
+                    </p>
                 </div>
+            </div>
 
-                <div class="text-center">
-                    <div class="w-12 h-12 mx-auto bg-blue-100 dark:bg-blue-900 rounded-full 
-                                flex items-center justify-center mb-4">
-                        <i class="fas fa-clock text-blue-500"></i>
-                    </div>
-                    <h3 class="font-bold mb-2">Support Hours</h3>
-                    <p class="text-gray-600 dark:text-gray-400">24/7 Online Support</p>
+            <!-- Response Time -->
+            <div class="mt-12 text-center">
+                <div class="inline-block bg-yellow-50 dark:bg-yellow-900/20 rounded-lg p-6">
+                    <i class="fas fa-clock text-yellow-500 text-2xl mb-3"></i>
+                    <h3 class="font-bold mb-2">回复时间</h3>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        我们通常在 24-48 小时内回复邮件
+                    </p>
                 </div>
             </div>
         </div>

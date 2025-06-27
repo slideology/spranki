@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-adsense-account" content="ca-pub-3179065211650247">
+
+    <title>FAQ - Spranki - Spranki | Interactive Music Experience</title>
+    
+    <!-- Clarity Analytics -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "qqgzrqm2ec");
+    </script>
+
+    <!-- SEO Meta Tags -->
+    
+    <meta name="author" content="Spranki">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Spranki - Interactive Music Experience">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://spranki.art/faq">
+    <meta property="og:image" content="http://localhost/static/images/og-image.jpg">
+    <meta property="og:site_name" content="Spranki">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Spranki - Interactive Music Experience">
+    <meta name="twitter:image" content="http://localhost/static/images/og-image.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://spranki.art/faq">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/static/img/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/img/favicon.png">
+    
+    </script>
+    
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.13.3/dist/cdn.min.js"></script>
+    
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+    <!-- Core Styles -->
+    <style>
+        :root { --primary-color: #3b82f6; }
+        .dark { --primary-color: #60a5fa; }
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .animate-blob { animation: blob 7s infinite; }
+        @keyframes blob {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .animation-delay-2000 { animation-delay: 2s; }
+        .animate-on-scroll { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+        .animate-on-scroll.animate { opacity: 1; transform: translateY(0); }
+        nav { transition: transform 0.3s ease-in-out; }
+        nav.scroll-down { transform: translateY(-100%); }
+        nav.scroll-up { transform: translateY(0); }
+        
+        /* 自定义宽高比容器 */
+        .aspect-4-3 {
+            position: relative;
+            width: 100%;
+            padding-bottom: 75%; /* 4:3 = 75% */
+            height: 0;
+            overflow: hidden;
+        }
+        .aspect-4-3 > .content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+    
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JW7VP8KX3V"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JW7VP8KX3V');
+    </script>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3179065211650247" crossorigin="anonymous"></script>
+    
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Spranki",
+        "description": "An interactive music creation platform where you can create beats, mix sounds, and make your own music.",
+        "url": "https://spranki.art",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://spranki.art/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+    
+    <!-- Game Loading Script -->
+    <script>
+        function loadGame(buttonElement, gameUrl) {
+            // 找到游戏容器和内容容器
+            const container = buttonElement.closest('.game-container');
+            const contentDiv = buttonElement.closest('.content');
+            
+            // 创建iframe
+            const iframe = document.createElement('iframe');
+            iframe.src = gameUrl;
+            iframe.className = 'w-full h-full border-0';
+            iframe.scrolling = 'no';
+            iframe.allowFullscreen = true;
+            
+            // 清空内容容器并添加iframe
+            contentDiv.innerHTML = '';
+            contentDiv.appendChild(iframe);
+        }
+    </script>
+</head>
+
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 min-h-screen flex flex-col" x-data="{ theme: 'light', mobileMenu: false }">
+    <!-- Navigation -->
+    <!-- Navigation -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16 sm:h-20">
+            <!-- Logo -->
+            <div class="flex-shrink-0">
+                <a href="/" class="inline-block">
+                    <span class="text-xl sm:text-2xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 bg-clip-text text-transparent">Spranki</span>
+                </a>
+            </div>
+
+            <!-- Mobile menu button -->
+            <button type="button" 
+                    class="lg:hidden p-2 rounded-md text-gray-500 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-gray-300 dark:hover:bg-gray-800"
+                    @click="mobileMenu = !mobileMenu"
+                    aria-expanded="false">
+                <span class="sr-only">Open menu</span>
+                <svg class="h-6 w-6" x-show="!mobileMenu" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+                <svg class="h-6 w-6" x-show="mobileMenu" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+
+            <!-- Desktop menu -->
+            <div class="hidden lg:flex lg:items-center lg:space-x-8">
+                <a href="/" class="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white px-3 py-2 text-sm font-medium">
+                    Home
+                </a>
+                
+                <!-- Games Dropdown -->
+                <div class="relative" x-data="{ open: false }">
+                    <button @click="open = !open" @click.away="open = false" class="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white px-3 py-2 text-sm font-medium flex items-center">
+                        Games
+                        <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div x-show="open" 
+                         class="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5"
+                         x-transition:enter="transition ease-out duration-100"
+                         x-transition:enter-start="transform opacity-0 scale-95"
+                         x-transition:enter-end="transform opacity-100 scale-100"
+                         x-transition:leave="transition ease-in duration-75"
+                         x-transition:leave-start="transform opacity-100 scale-100"
+                         x-transition:leave-end="transform opacity-0 scale-95">
+                        <div class="py-1">
+                            <a href="/sprunki-retake-but-human" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">Sprunki Retake But Human</a>
+                            <a href="/sprunki-lily" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">Sprunki Lily</a>
+                            <a href="/sprunki-agents" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">Sprunki Agents</a>
+                            <a href="/sprunki-sprunksters" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">Sprunki Sprunksters</a>
+                            <a href="/sprunki-megalovania" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">Sprunki Megalovania</a>
+                            <a href="/sprunki-spruted" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">Sprunki Spruted</a>
+                            <a href="/sprunki-banana" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">Sprunki Banana</a>
+                            <a href="/sprunki-garnold" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">Sprunki Garnold</a>
+                            <a href="/sprunki-ketchup" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">Sprunki Ketchup</a>
+                            <a href="/sprunki-parodybox" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">Sprunki Parodybox</a>
+                            <a href="/sprunki-pyramixed" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">Sprunki Pyramixed</a>
+                            <a href="/sprunki-fiddlebops" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">Sprunki Fiddlebops</a>
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div x-show="mobileMenu" 
+             class="lg:hidden"
+             x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0 -translate-y-1"
+             x-transition:enter-end="opacity-100 translate-y-0"
+             x-transition:leave="transition ease-in duration-150"
+             x-transition:leave-start="opacity-100 translate-y-0"
+             x-transition:leave-end="opacity-0 -translate-y-1">
+            <div class="pt-2 pb-4 space-y-1">
+                <a href="/" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800 rounded-md">
+                    Home
+                </a>
+                
+                <!-- Mobile Games Menu -->
+                <div x-data="{ open: false }" class="relative">
+                    <button @click="open = !open" class="w-full text-left px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800 rounded-md flex justify-between items-center">
+                        Games
+                        <svg class="h-4 w-4" :class="{ 'transform rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div x-show="open" class="pl-4">
+                        <a href="/sprunki-retake-but-human" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800 rounded-md">Sprunki Retake But Human</a>
+                        <a href="/sprunki-lily" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800 rounded-md">Sprunki Lily</a>
+                        <a href="/sprunki-sprunksters" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800 rounded-md">Sprunki Sprunksters</a>
+                        <a href="/sprunki-agents" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800 rounded-md">Sprunki Agents</a>
+                        <a href="/sprunki-fiddlebops" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800 rounded-md">Sprunki FiddleBops</a>
+                        <a href="/sprunki-megalovania" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800 rounded-md">Sprunki Megalovania</a>
+                        <a href="/sprunki-spruted" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800 rounded-md">Sprunki Spruted</a>
+                        <a href="/sprunki-banana" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800 rounded-md">Sprunki Banana</a>
+                        <a href="/sprunki-garnold" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800 rounded-md">Sprunki Garnold</a>
+                        <a href="/sprunki-ketchup" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800 rounded-md">Sprunki Ketchup</a>
+                        <a href="/sprunki-parodybox" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800 rounded-md">Sprunki Parodybox</a>
+                        <a href="/sprunki-pyramixed" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800 rounded-md">Sprunki Pyramixed</a>
+                    </div>
+                </div>
+
+                <a href="/faq" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800 rounded-md">
+                    FAQ
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Language Selector Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const languageButton = document.getElementById('language-menu-button');
+    const languageMenu = document.getElementById('language-menu');
+    const mobileMenuButton = document.querySelector('[aria-controls="mobile-menu"]');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    // Language menu toggle
+    languageButton.addEventListener('click', function() {
+        languageMenu.classList.toggle('hidden');
+    });
+
+    // Close language menu when clicking outside
+    document.addEventListener('click', function(event) {
+        if (!languageButton.contains(event.target) && !languageMenu.contains(event.target)) {
+            languageMenu.classList.add('hidden');
+        }
+    });
+
+    // Mobile menu toggle
+    mobileMenuButton.addEventListener('click', function() {
+        mobileMenu.classList.toggle('hidden');
+        const expanded = mobileMenu.classList.contains('hidden') ? 'false' : 'true';
+        mobileMenuButton.setAttribute('aria-expanded', expanded);
+    });
+});
+</script>
+
+    <main class="pt-16 sm:pt-20 flex-grow">
+        <!-- Affiliate Banner -->
+        <!-- Affiliate Program Banner Component -->
+<div id="affiliate-banner" class="w-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white py-3 px-4 shadow-md relative">
+    <div class="container mx-auto flex flex-col sm:flex-row items-center justify-between">
+        <!-- Banner Content -->
+        <div class="flex items-center space-x-2 mb-2 sm:mb-0">
+            <i data-lucide="video" class="w-5 h-5"></i>
+            <p class="font-medium">Free to Generate AI Video Online Now</p>
+        </div>
+        
+        <!-- Call to Action Button -->
+        <a href="https://pollo.ai?ref=ytayndd" 
+           class="bg-white text-purple-600 hover:bg-gray-100 transition-colors duration-300 px-4 py-1.5 rounded-full font-medium text-sm shadow-sm"
+           target="_blank" 
+           rel="noopener noreferrer">
+            Try it Free
+        </a>
+        
+        <!-- Close Button -->
+        <button id="close-affiliate-banner" 
+                class="absolute top-1 right-2 text-white hover:text-gray-200 transition-colors duration-300"
+                aria-label="Close banner">
+            <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+    </div>
+</div>
+
+<!-- Banner JavaScript -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Check if banner was previously closed
+        const bannerClosed = localStorage.getItem('affiliate_banner_closed');
+        const banner = document.getElementById('affiliate-banner');
+        
+        // Show banner if it wasn't closed before
+        if (bannerClosed !== 'true') {
+            banner.classList.remove('hidden');
+        } else {
+            banner.classList.add('hidden');
+        }
+        
+        // Add close button functionality
+        document.getElementById('close-affiliate-banner').addEventListener('click', function() {
+            banner.classList.add('hidden');
+            // Store the user's preference
+            localStorage.setItem('affiliate_banner_closed', 'true');
+            
+            // Optional: Reset the preference after 7 days
+            setTimeout(() => {
+                localStorage.removeItem('affiliate_banner_closed');
+            }, 7 * 24 * 60 * 60 * 1000);
+        });
+    });
+</script>
+                
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-4xl font-bold text-center mb-12">Frequently Asked Questions</h1>
+
+    <div class="max-w-4xl mx-auto space-y-8">
+        <!-- Getting Started Section -->
+        <section>
+            <h2 class="text-2xl font-bold mb-6">Getting Started</h2>
+            <div class="space-y-6">
+                <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md">
+                    <h3 class="text-xl font-semibold mb-3">What is Spranki?</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Spranki is an innovative music creation game that combines rhythm gaming with creative music production. It's designed to make music creation fun and accessible while helping you develop real musical skills. You can create beats, melodies, and full songs through an intuitive interface that makes music theory approachable and enjoyable.
+                    </p>
+                </div>
+
+                <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md">
+                    <h3 class="text-xl font-semibold mb-3">What makes Spranki unique?</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Spranki stands out with its:
+                        <ul class="list-disc ml-6 mt-2 space-y-2">
+                            <li>Gamified learning approach to music theory</li>
+                            <li>Real-time visual feedback on your musical creations</li>
+                            <li>AI-powered music suggestions and harmonization</li>
+                            <li>Community features for sharing and collaborating</li>
+                            <li>Progressive skill development system</li>
+                        </ul>
+                    </p>
+                </div>
+
+                <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md">
+                    <h3 class="text-xl font-semibold mb-3">How do I get started with Spranki?</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Getting started is easy:
+                        <ol class="list-decimal ml-6 mt-2 space-y-2">
+                            <li>Click the "Play" button in the navigation menu</li>
+                            <li>Choose a game mode (Tutorial recommended for beginners)</li>
+                            <li>Follow the interactive tutorial to learn the basics</li>
+                            <li>Start creating your own music!</li>
+                        </ol>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Game Modes Section -->
+        <section>
+            <h2 class="text-2xl font-bold mb-6">Game Modes</h2>
+            <div class="space-y-6">
+                <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md">
+                    <h3 class="text-xl font-semibold mb-3">What game modes are available?</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Spranki offers several engaging modes:
+                        <ul class="list-disc ml-6 mt-2 space-y-2">
+                            <li><strong>Tutorial Mode:</strong> Interactive lessons teaching music basics</li>
+                            <li><strong>Freestyle Mode:</strong> Create music without restrictions</li>
+                            <li><strong>Challenge Mode:</strong> Complete musical tasks to earn rewards</li>
+                            <li><strong>Collaboration Mode:</strong> Create music with other players</li>
+                            <li><strong>Battle Mode:</strong> Compete in real-time music creation</li>
+                        </ul>
+                    </p>
+                </div>
+
+                <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md">
+                    <h3 class="text-xl font-semibold mb-3">How does Challenge Mode work?</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Challenge Mode features:
+                        <ul class="list-disc ml-6 mt-2 space-y-2">
+                            <li>Daily and weekly musical challenges</li>
+                            <li>Themed composition contests</li>
+                            <li>Skill-based matchmaking</li>
+                            <li>Rewards for completing challenges</li>
+                            <li>Global leaderboards</li>
+                        </ul>
+                    </p>
+                </div>
+
+                <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md">
+                    <h3 class="text-xl font-semibold mb-3">What's special about Battle Mode?</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Battle Mode lets you:
+                        <ul class="list-disc ml-6 mt-2 space-y-2">
+                            <li>Compete head-to-head with other players</li>
+                            <li>Create music under time pressure</li>
+                            <li>Use power-ups and special abilities</li>
+                            <li>Earn ranking points</li>
+                            <li>Join tournaments and leagues</li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Music Creation Features -->
+        <section>
+            <h2 class="text-2xl font-bold mb-6">Music Creation Features</h2>
+            <div class="space-y-6">
+                <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md">
+                    <h3 class="text-xl font-semibold mb-3">What musical tools are available?</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Spranki provides:
+                        <ul class="list-disc ml-6 mt-2 space-y-2">
+                            <li><strong>Virtual Instruments:</strong> Piano, drums, synths, strings, etc.</li>
+                            <li><strong>Effects:</strong> Reverb, delay, filters, modulation</li>
+                            <li><strong>Sound Library:</strong> Professional samples and loops</li>
+                            <li><strong>MIDI Support:</strong> Connect external instruments</li>
+                            <li><strong>AI Tools:</strong> Smart composition assistance</li>
+                        </ul>
+                    </p>
+                </div>
+
+                <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md">
+                    <h3 class="text-xl font-semibold mb-3">How does the AI assistance work?</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Our AI features include:
+                        <ul class="list-disc ml-6 mt-2 space-y-2">
+                            <li>Melody suggestions based on your style</li>
+                            <li>Automatic chord progression generation</li>
+                            <li>Smart harmonization</li>
+                            <li>Rhythm pattern recommendations</li>
+                            <li>Style-matching accompaniment</li>
+                        </ul>
+                    </p>
+                </div>
+
+                <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md">
+                    <h3 class="text-xl font-semibold mb-3">Can I collaborate with others?</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Yes! Collaboration features include:
+                        <ul class="list-disc ml-6 mt-2 space-y-2">
+                            <li>Real-time multiplayer sessions</li>
+                            <li>Track sharing and remixing</li>
+                            <li>In-game chat and communication</li>
+                            <li>Version control for projects</li>
+                            <li>Collaborative playlists</li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Learning & Progress -->
+        <section>
+            <h2 class="text-2xl font-bold mb-6">Learning & Progress</h2>
+            <div class="space-y-6">
+                <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md">
+                    <h3 class="text-xl font-semibold mb-3">How do I improve my skills?</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Spranki helps you improve through:
+                        <ul class="list-disc ml-6 mt-2 space-y-2">
+                            <li>Structured learning paths</li>
+                            <li>Interactive music theory lessons</li>
+                            <li>Practice exercises and challenges</li>
+                            <li>Feedback on your compositions</li>
+                            <li>Skill-based achievements</li>
+                        </ul>
+                    </p>
+                </div>
+
+                <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md">
+                    <h3 class="text-xl font-semibold mb-3">What can I learn in Spranki?</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        You'll learn about:
+                        <ul class="list-disc ml-6 mt-2 space-y-2">
+                            <li>Music theory fundamentals</li>
+                            <li>Rhythm and timing</li>
+                            <li>Melody and harmony</li>
+                            <li>Song structure and composition</li>
+                            <li>Sound design and mixing</li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical & Support -->
+        <section>
+            <h2 class="text-2xl font-bold mb-6">Technical & Support</h2>
+            <div class="space-y-6">
+                <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md">
+                    <h3 class="text-xl font-semibold mb-3">What devices can I play Spranki on?</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Spranki works on any modern web browser, including desktop computers, laptops, tablets, and mobile phones. Just visit our website and start playing!
+                    </p>
+                </div>
+
+                <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md">
+                    <h3 class="text-xl font-semibold mb-3">Do I need to install anything?</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        No installation required! Spranki runs directly in your web browser. Just make sure you have a modern browser with JavaScript enabled.
+                    </p>
+                </div>
+
+                <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md">
+                    <h3 class="text-xl font-semibold mb-3">What are the minimum system requirements?</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Spranki is designed to run smoothly on most devices. You'll need:
+                        <ul class="list-disc ml-6 mt-2">
+                            <li>A modern web browser (Chrome, Firefox, Safari, or Edge)</li>
+                            <li>JavaScript enabled</li>
+                            <li>Stable internet connection</li>
+                            <li>Audio output capability</li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Account & Pricing Section -->
+        <section>
+            <h2 class="text-2xl font-bold mb-6">Account & Pricing</h2>
+            <div class="space-y-6">
+                <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md">
+                    <h3 class="text-xl font-semibold mb-3">Is Spranki free to play?</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Yes, Spranki is completely free to play! We offer optional premium features for enhanced creativity, but the core game experience is always free.
+                    </p>
+                </div>
+
+                <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md">
+                    <h3 class="text-xl font-semibold mb-3">Do I need an account to play?</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        You can try Spranki without an account, but creating a free account allows you to save your creations, track your progress, and join the community.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="text-center mt-12">
+            <h2 class="text-2xl font-bold mb-4">Still Have Questions?</h2>
+            <p class="text-gray-600 dark:text-gray-300 mb-6">
+                Can't find the answer you're looking for? Feel free to contact us.
+            </p>
+            <a href="/contact" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                Contact Support
+            </a>
+        </section>
+    </div>
+</div>
+
+    </main>
+
+    <!-- Footer Component -->
+<footer class="bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 border-t border-gray-100 dark:border-gray-800">
+    <div class="container mx-auto px-4 py-8">
+        <!-- Top Section -->
+        <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+            <!-- Brand -->
+            <div class="mb-6 md:mb-0">
+                <a href="/" class="text-2xl font-bold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent hover:opacity-90 transition-all duration-300">
+                    Spranki
+                </a>
+                <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                    Sprunki Retake OC Mod, a online fan-made alteration of Incredibox Sprunki rhythm game, enjoy it.
+                </p>
+            </div>
+            
+            <!-- Social Links -->
+            <div class="flex space-x-4">
+                <a href="https://twitter.com/spranki" 
+                   class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-purple-100 dark:hover:bg-purple-900 hover:text-purple-500 dark:hover:text-purple-400 transition-all duration-300"
+                   aria-label="Follow us on Twitter">
+                    <i data-lucide="twitter" class="w-5 h-5"></i>
+                </a>
+                <a href="https://github.com/codeium" 
+                   class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-purple-100 dark:hover:bg-purple-900 hover:text-purple-500 dark:hover:text-purple-400 transition-all duration-300"
+                   aria-label="Visit our GitHub">
+                    <i data-lucide="github" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="h-px bg-gradient-to-r from-purple-500 to-pink-500 opacity-75 my-6"></div>
+
+        <!-- Bottom Section -->
+        <div class="flex flex-col md:flex-row justify-between items-center text-sm">
+            <!-- Copyright -->
+            <p class="text-gray-600 dark:text-gray-400 mb-4 md:mb-0">
+                2025 Spranki. All rights reserved.
+            </p>
+
+            <!-- Legal Links -->
+            <div class="flex items-center space-x-8">
+                <a href="/privacy-policy" 
+                   class="text-gray-600 dark:text-gray-400 hover:text-purple-500 dark:hover:text-purple-400 transition-colors duration-300">
+                    Privacy Policy
+                </a>
+                <span class="text-gray-300 dark:text-gray-700">|</span>
+                <a href="/terms-of-service" 
+                   class="text-gray-600 dark:text-gray-400 hover:text-purple-500 dark:hover:text-purple-400 transition-colors duration-300">
+                    Terms of Service
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- JavaScript -->
+    <script src="/static/js/main.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest"></script>
+    <script>lucide.createIcons();</script>
+    
+</body>
+</html>
