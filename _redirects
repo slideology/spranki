@@ -1,14 +1,8 @@
-# Static site redirects for Cloudflare Pages
-
-# Redirect old paths if any
-# /old-path /new-path 301
-
-# Catch-all for SPA (not needed for static site)
-# /* /index.html 200
+# Cloudflare Pages静态站点重定向规则
 
 # 重定向 www 到非 www
-https://www.spranki.art/* https://spranki.art/:splat 301!
+https://www.spranki.art/* https://spranki.art/:splat 301
 
-# HTTP 到 HTTPS 重定向
-http://spranki.art/* https://spranki.art/:splat 301!
-http://www.spranki.art/* https://spranki.art/:splat 301! 
+# HTTP 到 HTTPS 重定向  
+http://spranki.art/* https://spranki.art/:splat 301
+http://www.spranki.art/* https://spranki.art/:splat 301 

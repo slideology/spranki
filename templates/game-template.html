@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page_title }} - Sprunki Music Experience{% endblock %}
+
+{% block meta_description %}
+<meta name="description" content="{{ page_title }}: Experience the innovative music creation game with unique characters and sounds. Play now and create your musical masterpiece!">
+{% endblock %}
+
+{% block og_title %}{{ page_title }} - Sprunki Game{% endblock %}
+{% block og_description %}{{ page_title }}: Experience the innovative music creation game with unique characters and sounds. Play now and create your musical masterpiece!{% endblock %}
+{% block og_image %}https://spranki.art/static/images/games/sprunki-default.png{% endblock %}
+
+{% block head %}
+<meta name="description" content="{{ page_title }}: Experience the innovative music creation game with unique characters and sounds. Play now and create your musical masterpiece!">
+{% endblock %}
+
+{% block favicon %}
+<link rel="icon" type="image/png" href="{{ url_for('static', filename='images/games/sprunki-favicon.png') }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/games/sprunki-apple-touch-icon.png') }}">
+{% endblock %}
+
+{% block content %}
+<div class="relative overflow-hidden">
+    {% with 
+        gradient_colors="from-purple-400 via-pink-500 to-red-500",
+        blob_gradient_1="from-purple-500 to-pink-500",
+        blob_gradient_2="from-pink-500 to-red-500",
+        title_gradient="from-purple-500 via-pink-500 to-red-500",
+        game_url="https://playminigames.net/embed/sprunki",
+        title=page_title,
+        description=page_title + ": Experience the innovative music creation game with unique characters and sounds. Play now and create your musical masterpiece!"
+    %}
+        {% include 'components/hero.html' %}
+    {% endwith %}
+
+    {% with current_page=page_slug %}
+    {% include 'components/trending_games.html' %}
+    {% endwith %}
+
+    <!-- FAQ Section -->
+    {% if faq_data %}
+    {% include 'components/faq_section.html' %}
+    {% endif %}
+</div>
+{% endblock %} 

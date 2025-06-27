@@ -2,5 +2,8 @@ name = "spranki-art"
 compatibility_date = "2024-12-27"
 
 [build]
-command = "python3 generate_static.py"
-publish = "dist" 
+command = "python generate_static.py"
+publish = "dist"
+
+# 确保只作为静态站点部署
+pages_build_output_dir = "dist" 
