@@ -1,0 +1,6 @@
+# 重定向 www 到非 www
+https://www.spranki.art/* https://spranki.art/:splat 301!
+
+# HTTP 到 HTTPS 重定向
+http://spranki.art/* https://spranki.art/:splat 301!
+http://www.spranki.art/* https://spranki.art/:splat 301! 

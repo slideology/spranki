@@ -1,0 +1,25 @@
+name = "spranki-art"
+compatibility_date = "2024-12-27"
+pages_build_output_dir = "."
+
+[env.production]
+name = "spranki-art"
+compatibility_date = "2024-12-27"
+
+# Pages 项目配置
+[[env.production.routes]]
+pattern = "spranki.art/*"
+zone_name = "spranki.art"
+
+[[env.production.routes]]
+pattern = "www.spranki.art/*"
+zone_name = "spranki.art"
+
+# 环境变量配置
+[env.production.vars]
+ENVIRONMENT = "production"
+DEBUG = "false"
+
+# 兼容性标志
+[env.production.compatibility_flags]
+nodejs_compat = true 
