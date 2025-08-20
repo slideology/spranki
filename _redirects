@@ -1,8 +1,8 @@
-# Cloudflare Pages静态站点重定向规则
+# Cloudflare Pages static site redirect rules
 
-# 重定向 www 到非 www
-https://www.spranki.art/* https://spranki.art/:splat 301
+# Redirect www to non-www (primary redirect)
+https://www.spranki.art/* https://spranki.art/:splat 301!
 
-# HTTP 到 HTTPS 重定向  
-http://spranki.art/* https://spranki.art/:splat 301
-http://www.spranki.art/* https://spranki.art/:splat 301 
+# HTTP to HTTPS redirects
+http://spranki.art/* https://spranki.art/:splat 301!
+http://www.spranki.art/* https://spranki.art/:splat 301! 
