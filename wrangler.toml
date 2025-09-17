@@ -1,2 +1,11 @@
 name = "spranki-art"
-compatibility_date = "2024-12-27" 
+compatibility_date = "2024-12-27"
+
+# 配置生产环境自动部署
+[env.production]
+# 生产环境配置
+
+# 配置构建设置
+[build]
+command = "python3 generate_static.py"
+publish = "dist" 
