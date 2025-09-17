@@ -1,9 +1,2 @@
 name = "spranki-art"
-compatibility_date = "2024-12-27"
-
-[build]
-command = "python generate_static.py"
-publish = "dist"
-
-# 静态站点配置 - 不使用Functions
-pages_build_output_dir = "dist" 
+compatibility_date = "2024-12-27" 
