@@ -29,6 +29,30 @@
         {% include 'components/hero.html' %}
     {% endwith %}
 
+    <!-- 广告区域 - 使用iframe沙盒保护 -->
+    <section class="ad-container py-8 bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <!-- 广告标题 -->
+                <div class="text-center mb-4">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
+                        Advertisement
+                    </span>
+                </div>
+                <!-- 广告iframe容器 -->
+                <div class="ad-iframe-wrapper bg-white dark:bg-gray-700 rounded-xl shadow-lg border border-gray-200 dark:border-gray-600 overflow-hidden">
+                    <iframe 
+                        id="ad-iframe"
+                        class="w-full h-80 border-0"
+                        sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"
+                        loading="lazy"
+                        title="Advertisement">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
     {% with current_page='index' %}
     {% include 'components/trending_games.html' %}
     {% endwith %}
@@ -37,4 +61,60 @@
     <!-- faq Section -->
     {% include 'components/faq_section.html' %}
 </div>
+{% endblock %}
+
+{% block scripts %}
+<!-- 广告脚本 - 在iframe中加载 -->
+<script>
+    // 创建广告内容
+    function loadAdContent() {
+        const iframe = document.getElementById('ad-iframe');
+        const adContent = `
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <style>
+                    body { 
+                        margin: 0; 
+                        padding: 0; 
+                        font-family: Arial, sans-serif; 
+                        background: transparent;
+                        overflow: hidden;
+                    }
+                    .ad-content {
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                </style>
+            </head>
+            <body>
+                <div class="ad-content">
+                    <!-- 广告容器 -->
+                    <div id="container-3cc67bb706b413acf0b69af358da16e5"></div>
+                </div>
+                
+                <!-- 广告脚本 -->
+                <script type='text/javascript' src='//pl27660422.revenuecpmgate.com/b8/47/52/b84752c4158bc729c382a28cab5d0343.js'><\/script>
+                <script async="async" data-cfasync="false" src="//pl27660410.revenuecpmgate.com/3cc67bb706b413acf0b69af358da16e5/invoke.js"><\/script>
+            </body>
+            </html>
+        `;
+        
+        // 将内容写入iframe
+        iframe.contentDocument.open();
+        iframe.contentDocument.write(adContent);
+        iframe.contentDocument.close();
+    }
+    
+    // 页面加载完成后初始化广告
+    document.addEventListener('DOMContentLoaded', function() {
+        // 延迟加载广告，避免影响页面性能
+        setTimeout(loadAdContent, 1000);
+    });
+</script>
 {% endblock %}
