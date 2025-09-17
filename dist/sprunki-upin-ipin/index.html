@@ -1414,6 +1414,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
     </main>
 
+    <!-- 广告区域 - 使用iframe沙盒保护 -->
+    <section class="ad-container py-4 bg-gray-100 dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <!-- 广告标题 -->
+                <div class="text-center mb-2">
+                    <span class="text-xs text-gray-500 dark:text-gray-400">Advertisement</span>
+                </div>
+                <!-- 广告iframe容器 -->
+                <div class="ad-iframe-wrapper bg-white dark:bg-gray-700 rounded-lg shadow-sm border border-gray-200 dark:border-gray-600">
+                    <iframe 
+                        id="ad-iframe"
+                        class="w-full h-64 border-0 rounded-lg"
+                        sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"
+                        loading="lazy"
+                        title="Advertisement">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer Component -->
 <footer class="bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 border-t border-gray-100 dark:border-gray-800">
     <div class="container mx-auto px-4 py-8">
@@ -1469,6 +1491,60 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     </div>
 </footer>
+
+    <!-- 广告脚本 - 在iframe中加载 -->
+    <script>
+        // 创建广告内容
+        function loadAdContent() {
+            const iframe = document.getElementById('ad-iframe');
+            const adContent = `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <style>
+                        body { 
+                            margin: 0; 
+                            padding: 0; 
+                            font-family: Arial, sans-serif; 
+                            background: transparent;
+                            overflow: hidden;
+                        }
+                        .ad-content {
+                            width: 100%;
+                            height: 100%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="ad-content">
+                        <!-- 广告容器 -->
+                        <div id="container-3cc67bb706b413acf0b69af358da16e5"></div>
+                    </div>
+                    
+                    <!-- 广告脚本 -->
+                    <script type='text/javascript' src='//pl27660422.revenuecpmgate.com/b8/47/52/b84752c4158bc729c382a28cab5d0343.js'><\/script>
+                    <script async="async" data-cfasync="false" src="//pl27660410.revenuecpmgate.com/3cc67bb706b413acf0b69af358da16e5/invoke.js"><\/script>
+                </body>
+                </html>
+            `;
+            
+            // 将内容写入iframe
+            iframe.contentDocument.open();
+            iframe.contentDocument.write(adContent);
+            iframe.contentDocument.close();
+        }
+        
+        // 页面加载完成后初始化广告
+        document.addEventListener('DOMContentLoaded', function() {
+            // 延迟加载广告，避免影响页面性能
+            setTimeout(loadAdContent, 1000);
+        });
+    </script>
 
     <!-- JavaScript -->
     <script src="/static/js/main.min.js" defer></script>
